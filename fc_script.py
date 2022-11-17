@@ -1,5 +1,4 @@
 # http://geospatialtraining.com/populating-a-feature-class-in-arcgis-pro-using-an-insert-cursor-in-arcpy/
-import sys
 import arcpy
 import ctypes
 
