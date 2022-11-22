@@ -1,4 +1,6 @@
 # http://geospatialtraining.com/populating-a-feature-class-in-arcgis-pro-using-an-insert-cursor-in-arcpy/
+# https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/add-field.htm
+
 import arcpy
 import ctypes
 
