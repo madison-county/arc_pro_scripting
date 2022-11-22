@@ -9,8 +9,19 @@ import ctypes
 arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
 message_box = ctypes.windll.user32.MessageBoxW
 
+STATIC_PATH = (r"C:/Users/jboyk/map_stuff/test_project_2/test_project_2.gdb")
+# Get the dataset name from Parameter(0) in ArcGIS
 feature_class_name = arcpy.GetParameterAsText(0)
-file_path = (arcpy.GetParameterAsText(1)) or (r"C:/Users/jboyk/map_stuff/test_project_2/test_project_2.gdb")
+# Get user entered path, if it exists
+base_path = arcpy.GetParameterAsText(1)
+# If file_path does not exist, create file_path (Check for path validity)
+file_path = base_path or STATIC_PATH
+
+def class_creation(file_path, feature_class_name):
+    point_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_point'), "POINT", spatial_reference=4326)
+    polyline_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_polyline'), "POLYLINE", spatial_reference=4326)
+    polygon_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_polygon'), "POLYGON", spatial_reference=4326)
+    return point_fc, polyline_fc, polygon_fc
 
 if len(feature_class_name) > 13:
     err = "Error: 13 character limit max for inputs"
@@ -18,10 +29,9 @@ if len(feature_class_name) > 13:
     arcpy.AddError(err)
     message_box(None, err, "Character limit error", 0)
 else:
-    point_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_point'), "POINT", spatial_reference=4326)
-    polyline_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_polyline'), "POLYLINE", spatial_reference=4326)
-    polygon_fc = arcpy.CreateFeatureclass_management(file_path, (feature_class_name + '_polygon'), "POLYGON", spatial_reference=4326)
-
+    if file_path != STATIC_PATH:
+        file_path = arcpy.management.CreateFileGDB(base_path, feature_class_name + ".gdb")
+    point_fc, polyline_fc, polygon_fc = class_creation(file_path, feature_class_name)
     feature_class_list = [point_fc, polyline_fc, polygon_fc]
 
     # Set field variables
