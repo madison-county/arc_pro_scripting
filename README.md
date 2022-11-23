@@ -14,3 +14,24 @@
   * `Polylines`
   * `Polygons`
 * The user can change the default `fields` contained within each feature class by altering the `fields` data structure with corresponding information.
+
+## Converting a `Layer file` to a `KML file`
+### Documentation is outlined here:
+#### https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/layer-to-kml.htm
+
+* The only required user entry field is the input layer.
+  * All other fields will default to values set internally via the script
+  * However, it is possible to manually enter fields for a more customizable `.kml` file
+  * The additional fields are listed below:
+    * `composite` (String):
+      * Default value is `COMPOSITE`
+      * Can also be supplied with `NO_COMPOSITE`
+    * `pixels` (Double): 
+      * Default value is `8192`
+      * No restrictions on keyword arguments
+    * `dpi` (Double):
+      * Default value is set to `96`
+      * No restrictions on keyword arguments
+    * `clamped` (String) || `ignore_zvalue`:
+      * Default value is set to `CLAMPED_TO_GROUND`
+      * Can also be supplied with `ABSOLUTE`
