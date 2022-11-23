@@ -23,15 +23,19 @@
   * All other fields will default to values set internally via the script
   * However, it is possible to manually enter fields for a more customizable `.kml` file
   * The additional fields are listed below:
-    * `composite` (String):
+    * `composite` (String) || `is_composite`:
+      * `Parameter(2)`
       * Default value is `COMPOSITE`
       * Can also be supplied with `NO_COMPOSITE`
-    * `pixels` (Double): 
+    * `pixels` (Double) || `image_size`:
+      * `Parameter(3)`
       * Default value is `8192`
       * No restrictions on keyword arguments
-    * `dpi` (Double):
+    * `dpi` (Double) || `dpi_of_clients`:
+      * `Parameter(4)`
       * Default value is set to `96`
       * No restrictions on keyword arguments
     * `clamped` (String) || `ignore_zvalue`:
+      * `Parameter(5)`
       * Default value is set to `CLAMPED_TO_GROUND`
       * Can also be supplied with `ABSOLUTE`
