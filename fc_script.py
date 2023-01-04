@@ -31,6 +31,7 @@ if len(feature_class_name) > 13:
 else:
     if file_path != STATIC_PATH:
         file_path = arcpy.management.CreateFileGDB(base_path, feature_class_name + ".gdb")
+        arcpy.AddMessage("Manual file location supplied - Creating gdb at {}".format(file_path))
     point_fc, polyline_fc, polygon_fc = class_creation(file_path, feature_class_name)
     feature_class_list = [point_fc, polyline_fc, polygon_fc]
 
