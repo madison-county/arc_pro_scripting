@@ -23,6 +23,10 @@
       * Only applies to field types `FLOAT`, `DOUBLE`, `SHORT`, or `LONG`
     * `{field_scale}`: Total number of decimal places stored in the field.
       * Only applies to `FLOAT` or `DOUBLE`.
+    * `{field_length}`: Length of field - Sets the maximum allowed characters.
+      * Only applies to `TEXT`.
+      
+    
     
 ## Converting a `Layer file` to a `KML file`
 ### Documentation is outlined here:
