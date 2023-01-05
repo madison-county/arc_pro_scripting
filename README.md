@@ -25,6 +25,8 @@
       * Only applies to `FLOAT` or `DOUBLE`.
     * `{field_length}`: Length of field - Sets the maximum allowed characters.
       * Only applies to `TEXT`.
+    * `{field_alias}`: Alternate name for a field - Can include spaces and various characters not normally allowed in `field_name`.
+      * Only applies to `geodatabases`
       
     
     
