@@ -33,6 +33,7 @@
     * `{field_is_required}`: Specifies whether the field will be required or not for the table.
       * Required fields are only supported in `geodatabases`
       * Supports `NON_REQUIRED` and `REQUIRED`
+    * `field_domain`: Constraints the values allowed in any attribute for a table, feature class, or subtype in a `geodatabase`. The name of the pre-existing domain must be specified for it to be applicable.
     
     
 ## Converting a `Layer file` to a `KML file`
