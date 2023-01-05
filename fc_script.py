@@ -68,7 +68,7 @@ else:
         ("URL_1", "String"),
         ("Ref_Doc_2", "String"),
         # Increase size to 3000
-        ("Ref_Text_2", "String"),
+        ("Ref_Text_2", "String", None, None, 3000),
         ("URL_2", "String"),
         ("Notes", "String"),
         # Increase size to 3000
