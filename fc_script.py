@@ -81,8 +81,12 @@ else:
         ("Shape_Area", "Double")
     ]
 
+# Auto-Generated add field to feature class with size of 3000
+# arcpy.management.AddField("testClass2", "className", "TEXT", None, None, 3000, '', "NULLABLE", "NON_REQUIRED", '')
+
     for features in feature_class_list:
         for field in fields:
             if "Ref_Text_1" in field[0]:
                 arcpy.AddMessage("{} found".format(field[0]))
+                arcpy.management.AddField(features, field[0], field[1], None, None, 3000)
             arcpy.AddField_management(*(features,) + field)
