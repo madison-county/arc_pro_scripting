@@ -21,7 +21,9 @@
       * `TEXT`, `FLOAT`, `DOUBLE`, `SHORT`, `LONG`, `DATE`, `BLOB`, `RASTER`, `GUID`
     * `{field_precision}`: Total number of digits that can be stored in the field. 
       * Only applies to field types `FLOAT`, `DOUBLE`, `SHORT`, or `LONG`
-      
+    * `{field_scale}`: Total number of decimal places stored in the field.
+      * Only applies to `FLOAT` or `DOUBLE`.
+    
 ## Converting a `Layer file` to a `KML file`
 ### Documentation is outlined here:
 #### https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/layer-to-kml.htm
