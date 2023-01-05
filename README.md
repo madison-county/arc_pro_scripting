@@ -30,7 +30,9 @@
     * `{field_is_nullable}`: Specifies whether the field can contain null values - which differ from zero or empty fields.
       * Only applies to `geodatabases`
       * Supports the argument `NON-NULLABLE` and `NULLABLE`.
-    
+    * `{field_is_required}`: Specifies whether the field will be required or not for the table.
+      * Required fields are only supported in `geodatabases`
+      * Supports `NON_REQUIRED` and `REQUIRED`
     
     
 ## Converting a `Layer file` to a `KML file`
