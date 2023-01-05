@@ -63,13 +63,16 @@ else:
         ("Map_Date", "Date"),
         ("Region_Are", "String"),
         ("Ref_Doc_1", "String"),
+        # Increase size to 3000
         ("Ref_Text_1", "String"),
         ("URL_1", "String"),
         ("Ref_Doc_2", "String"),
+        # Increase size to 3000
         ("Ref_Text_2", "String"),
         ("URL_2", "String"),
         ("Notes", "String"),
-        ("Comments", "String"),
+        # Increase size to 3000
+        ("Comments", "String", 3000),
         ("Townsite1", "String"),
         ("Map_ID", "String"),
         ("Other_No", "String"),
@@ -80,4 +83,6 @@ else:
 
     for features in feature_class_list:
         for field in fields:
+            if "Ref_Text_1" in field[0]:
+                arcpy.AddMessage("{} found".format(field[0]))
             arcpy.AddField_management(*(features,) + field)
