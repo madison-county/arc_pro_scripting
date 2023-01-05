@@ -27,7 +27,10 @@
       * Only applies to `TEXT`.
     * `{field_alias}`: Alternate name for a field - Can include spaces and various characters not normally allowed in `field_name`.
       * Only applies to `geodatabases`
-      
+    * `{field_is_nullable}`: Specifies whether the field can contain null values - which differ from zero or empty fields.
+      * Only applies to `geodatabases`
+      * Supports the argument `NON-NULLABLE` and `NULLABLE`.
+    
     
     
 ## Converting a `Layer file` to a `KML file`
