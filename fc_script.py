@@ -36,49 +36,52 @@ else:
     feature_class_list = [point_fc, polyline_fc, polygon_fc]
 
     # Set field variables
+    # Potential to add additional FIELDS
+        # Have or not have an ALIAS
+        # AKA_1 == AKA 1 (with additional characters if needed)
     fields = [
-        ("Link_Base", "String"),
-        ("Link_Part", "String"),
-        ("Link", "String"),
-        ("FULLROADNA", "String"),
-        ("AKA", "String"),
-        ("AKA_1", "String"),
-        ("AKA_2", "String"),
-        ("AKA_3", "String"),
-        ("Feature_Na", "String"),
-        ("Book", "Double"),
-        ("Feature_No", "String"),
-        ("Township", "Double"),
-        ("T_Directio", "String"),
-        ("Range", "Double"),
-        ("R_Directio", "String"),
-        ("Section", "String"),
-        ("Feature_Ty", "String"),
-        ("County_Roa", "String"),
-        ("Town_Roads", "String"),
-        ("Easement_W", "String"),
-        ("Map_Name", "String"),
-        ("Surveyor", "String"),
-        ("Map_Source", "String"),
-        ("Map_Date", "Date"),
-        ("Region_Are", "String"),
-        ("Ref_Doc_1", "String"),
-        # Increase size to 3000
-        ("Ref_Text_1", "String"),
-        ("URL_1", "String"),
-        ("Ref_Doc_2", "String"),
-        # Increase size to 3000
-        ("Ref_Text_2", "String", None, None, 3000),
-        ("URL_2", "String"),
-        ("Notes", "String"),
-        # Increase size to 3000
-        ("Comments", "String", 3000),
-        ("Townsite1", "String"),
-        ("Map_ID", "String"),
-        ("Other_No", "String"),
-        ("Status", "String"),
-        ("Shape_Length", "Double"),
-        ("Shape_Area", "Double")
+        #field_name, field_type, {field_precision}, {field_scale}, {field_length}, {field_alias}, {field_is_nullable}, {field_is_required}, {field_domain}
+		("Label", "String", None, None, None, None, "NULLABLE", None, None),
+		("Link_Base", "String", None, None, None, None, "NULLABLE", None, None),
+		("Link_Part", "String", None, None, None, None, "NULLABLE", None, None),
+		("Link", "String", None, None, None, None, "NULLABLE", None, None),
+		("FULLROADNA", "String", None, None, None, "Full Road Name", "NULLABLE", None, None),
+		("AKA", "String", None, None, None, None, "NULLABLE", None, None),
+		("AKA_1", "String", None, None, None, None, "NULLABLE", None, None),
+		("AKA_2", "String", None, None, None, None, "NULLABLE", None, None),
+		("AKA_3", "String", None, None, None, None, "NULLABLE", None, None),
+		("Feature_Na", "String", None, None, None, "Feature Name", "NULLABLE", None, None),
+		("Book", "Double", None, None, None, None, "NULLABLE", None, None),
+		("Feature_No", "String", None, None, None, None, "NULLABLE", None, None),
+		("Township", "Double", None, None, None, None, "NULLABLE", None, None),
+		("T_Directio", "String", None, None, None, "Township Direction", "NULLABLE", None, None),
+		("Range", "Double", None, None, None, None, "NULLABLE", None, None),
+		("R_Directio", "String", None, None, None, "Range Direction", "NULLABLE", None, None),
+		("Section", "String", None, None, None, None, "NULLABLE", None, None),
+		("TRS_Label", "String", None, None, None, "TRS Label", "NULLABLE", None, None),
+		("Feature_Ty", "String", None, None, None, None, "NULLABLE", None, None),
+		("County_Roa", "String", None, None, None, "County Road", "NULLABLE", None, None),
+		("Town_Roads", "String", None, None, None, "Town Road", "NULLABLE", None, None),
+		("Easement_W", "String", None, None, None, "Easement Width", "NULLABLE", None, None),
+		("Map_Name", "String", None, None, None, None, "NULLABLE", None, None),
+		("Surveyor", "String", None, None, None, None, "NULLABLE", None, None),
+		("Map_Source", "String", None, None, None, "Map Source", "NULLABLE", None, None),
+		("Map_Date", "Date", None, None, None, "Map Date", "NULLABLE", None, None),
+		("Region_Are", "String", None, None, None, "Region/Area", "NULLABLE", None, None),
+		("Ref_Doc_1", "String", None, None, None, None, "NULLABLE", None, None),
+		("Ref_Text_1", "String",  None,  None, 3000, None, "NULLABLE", None, None),
+		("URL_1", "String", None, None, None, None, "NULLABLE", None, None),
+		("Ref_Doc_2", "String", None, None, None, None, "NULLABLE", None, None),
+		("Ref_Text_2", "String",  None,  None, 3000, None, "NULLABLE", None, None),
+		("URL_2", "String", None, None, None, None, "NULLABLE", None, None),
+		("Notes", "String", None, None, None, None, "NULLABLE", None, None),
+		("Comments", "String",  None,  None, 3000, None, "NULLABLE", None, None),
+		("Townsite1", "String", None, None, None, None, "NULLABLE", None, None),
+		("Map_ID", "String", None, None, None, None, "NULLABLE", None, None),
+		("Other_No", "String", None, None, None, None, "NULLABLE", None, None),
+		("Status", "String", None, None, None, None, "NULLABLE", None, None),
+		("Shape_Length", "Double", None, None, None, None, "NULLABLE", None, None),
+		("Shape_Area", "Double", None, None, None, None, "NULLABLE", None, None)
     ]
 
 # Auto-Generated add field to feature class with size of 3000
@@ -86,7 +89,7 @@ else:
 
     for features in feature_class_list:
         for field in fields:
-            if "Ref_Text_1" in field[0]:
-                arcpy.AddMessage("{} found".format(field[0]))
-                arcpy.management.AddField(features, field[0], field[1], None, None, 3000)
+            #if "Ref_Text_1" in field[0]:
+                #arcpy.AddMessage("{} found".format(field[0]))
+                #arcpy.management.AddField(features, field[0], field[1], None, None, 3000)
             arcpy.AddField_management(*(features,) + field)
