@@ -19,7 +19,9 @@
     * `field_name`: Name of the field to be added to the input table
     * `field_type`: Specify the type of the new field
       * `TEXT`, `FLOAT`, `DOUBLE`, `SHORT`, `LONG`, `DATE`, `BLOB`, `RASTER`, `GUID`
-
+    * `{field_precision}`: Total number of digits that can be stored in the field. 
+      * Only applies to field types `FLOAT`, `DOUBLE`, `SHORT`, or `LONG`
+      
 ## Converting a `Layer file` to a `KML file`
 ### Documentation is outlined here:
 #### https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/layer-to-kml.htm
