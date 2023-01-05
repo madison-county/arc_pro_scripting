@@ -17,7 +17,8 @@
   * The default values are listed below:
   * `field_name`, `field_type`, `{field_precision}`, `{field_scale}`, `{field_length}`, `{field_alias}`, `{field_is_nullable}`, `{field_is_required}`, `{field_domain}`
     * `field_name`: Name of the field to be added to the input table
-    
+    * `field_type`: Specify the type of the new field
+      * `TEXT`, `FLOAT`, `DOUBLE`, `SHORT`, `LONG`, `DATE`, `BLOB`, `RASTER`, `GUID`
 
 ## Converting a `Layer file` to a `KML file`
 ### Documentation is outlined here:
