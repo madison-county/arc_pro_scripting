@@ -14,6 +14,8 @@
   * `Polylines`
   * `Polygons`
 * The user can change the default `fields` contained within each feature class by altering the `fields` data structure with corresponding information.
+  * The default values are listed below:
+  * `field_name`, `field_type`, `{field_precision}`, `{field_scale}`, `{field_length}`, `{field_alias}`, `{field_is_nullable}`, `{field_is_required}`, `{field_domain}`
 
 ## Converting a `Layer file` to a `KML file`
 ### Documentation is outlined here:
