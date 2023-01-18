@@ -24,6 +24,7 @@ def trim_and_export(feature_class_name, selection_field, field_value):
                                         feature_class_name, 
                                         feature_class_name), 
                                     None)
+    message_box(None, "New Shapefile Trimmed and Created", 0)
     return new_export
 
 new_feature = trim_and_export(feature_class_name, selection_field, field_value)
