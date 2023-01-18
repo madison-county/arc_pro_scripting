@@ -62,6 +62,7 @@
       * Can also be supplied with `ABSOLUTE`
 
 ## Exporting and Trimming a `.gdb` or `shapefile` || `modular_export.py`
+* The overall scope of this script is to take a input `shapefile` or `.gdb`, trim fields down, concat `Township`, `T_Directio`, `Range`, `R_Directio`, and `Section_s_` into a newly created field called `Legal_Loc`.
 * This script takes three input parameters.
   - 1: The name of the `shapefile` or `.gdb` to be updated (in the current project directory) 
   - 2: The name of the field to make a selection on:
