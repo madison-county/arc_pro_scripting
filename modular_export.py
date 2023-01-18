@@ -4,6 +4,8 @@ import ctypes
 arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
 message_box = ctypes.windll.user32.MessageBoxW
 
+feature_class_name = arcpy.GetParameterAsText(0)
+
 arcpy.conversion.ExportFeatures("MCMT_Plat_Map", r"C:\Users\jboyk\map_stuff\test_project_2\test_project_2.gdb\MCMT_Plat_Map_ExportFeatures", 
                                 "Book = 4", 
                                 "NOT_USE_ALIAS", 
