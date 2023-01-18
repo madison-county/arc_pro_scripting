@@ -65,7 +65,7 @@
 * The overall scope of this script is to take a input `shapefile` or `.gdb`, trim fields down, concat `Township`, `T_Directio`, `Range`, `R_Directio`, and `Section_s_` into a newly created field called `Legal_Loc` and export a new `shapefile`.
 * The `Legal_Loc` field will be present in the originally supplied `shapefile`/`.gdb` as well as the newly created `shapefile` from the export.
 * Export fields are `Label`, `<supplied user parameter>` (as decribed below), `File_date`, `Legal_Loc` (described above), and `Subdivisio` (`Subdivision Name`).
-* This script takes three input parameters.
+* This script takes three input parameters that must be enabled upon bringing the script in ArcGIS Pro:
   - 1: The name of the `shapefile` or `.gdb` to be updated (in the current project directory) 
   - 2: The name of the field to make a selection on:
     * Examples in `Book`, `Road_Name`, or `District`
