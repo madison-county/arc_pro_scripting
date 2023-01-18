@@ -5,10 +5,19 @@ arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
 message_box = ctypes.windll.user32.MessageBoxW
 
 feature_class_name = arcpy.GetParameterAsText(0)
+selection_field = arcpy.GetParameterAsText(1)
+field_value = arcpy.GetParameterAsText(2)
 
-def export_feature(feature_class_name):
-    new_export = arcpy.conversion.ExportFeatures(feature_class_name, r"C:/Users/jboyk/map_stuff/test_project_2/shp_files/{}".format(feature_class_name), 
-                                    "Book = 4", 
+def trim_and_export(feature_class_name, selection_field, field_value):
+    arcpy.management.CalculateField("MCMT_Plat_Map_export", 
+                                    "Legal_Loc", '"S " + !Section_s_! + "; T " + !Township! + " " + !T_Directio! + "; R " + !Range!  + " " +  !R_Directio!', 
+                                    "PYTHON3", 
+                                    '', 
+                                    "TEXT", 
+                                    "NO_ENFORCE_DOMAINS")
+
+    new_export = arcpy.conversion.ExportFeatures(feature_class_name, r"C:/Users/jboyk/map_stuff/test_project_2/shp_files/{}_export".format(feature_class_name), 
+                                    "{} = {}".format(selection_field, field_value), 
                                     "NOT_USE_ALIAS", 
                                     'Label "Label" true true false 255 Text 0 0,First,#,MCMT_Plat_Map,Label,0,255; \
                                     Book "Book" true true false 0 Double 0 0,First,#,MCMT_Plat_Map,Book,-1,-1; \
@@ -22,4 +31,6 @@ def export_feature(feature_class_name):
                                     None)
     return new_export
 
-new_feature = export_feature(feature_class_name)
+new_feature = trim_and_export(feature_class_name, selection_field, field_value)
+
+arcpy.AddMessage(new_feature)
