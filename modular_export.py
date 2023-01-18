@@ -8,12 +8,6 @@ feature_class_name = arcpy.GetParameterAsText(0)
 selection_field = arcpy.GetParameterAsText(1)
 field_value = arcpy.GetParameterAsText(2)
 
-def trim_feature(feature_class_name):
-
-    new_export = arcpy.management.CalculateField("{}".format(feature_class_name), "Legal_Loc", '"S " + !Section_s_! + "; T " + !Township! + " " + !T_Directio! + "; R " + !Range!  + " " +  !R_Directio!', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
-    
-    return new_export
-
 def trim_and_export(feature_class_name, selection_field, field_value):
     new_export = arcpy.management.CalculateField("{}".format(feature_class_name), "Legal_Loc", '"S " + !Section_s_! + "; T " + !Township! + " " + !T_Directio! + "; R " + !Range!  + " " +  !R_Directio!', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
 
