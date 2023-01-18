@@ -60,3 +60,11 @@
       * `Parameter(5)`
       * Default value is set to `CLAMPED_TO_GROUND`
       * Can also be supplied with `ABSOLUTE`
+
+## Exporting and Trimming a `.gdb` or `shapefile` || `modular_export.py`
+* This script takes three input parameters.
+  - 1: The name of the `shapefile` or `.gdb` to be updated (in the current project directory) 
+  - 2: The name of the field to make a selection on:
+    * Examples in `Book`, `Road_Name`, or `District`
+  - 3: The value of the field required to make the selection:
+    * Examples: If `Book` is supplied for the above example, then `4` or `5` could be passed to this field to make a selection of all specified fields that contain `Book` == `4`. 
