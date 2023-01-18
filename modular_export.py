@@ -1,5 +1,8 @@
 import arcpy
 import ctypes
+import os
+
+ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
 arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
 message_box = ctypes.windll.user32.MessageBoxW
@@ -24,7 +27,7 @@ def trim_and_export(feature_class_name, selection_field, field_value):
                                         feature_class_name, 
                                         feature_class_name), 
                                     None)
-    message_box(None, "New Shapefile Trimmed and Created", 0)
+    message_box(None, "New Shapefile Trimmed and Created - {}".format(ARCGIS_PASSWORD), 0)
     return new_export
 
 new_feature = trim_and_export(feature_class_name, selection_field, field_value)
