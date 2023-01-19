@@ -135,7 +135,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
     from arcgis.gis import GIS
     #password=getpass.getpass('Enter Word: \t\n')
 
-    cred_gis = GIS('https://www.arcgis.com','tluksha', password)
+    cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
     print('Login successful \t\t\t\t\t\t\t\t L__45 \t' + str(time.ctime()))
     # Define the ArcGIS Online Item ID for Core Data------------------------------------------------------------------------
