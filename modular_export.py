@@ -1,10 +1,13 @@
 import arcpy
 import ctypes
 import os
+
+from arcgis.gis import *
+from arcgis.gis import GIS
 from dotenv import load_dotenv
 
-load_dotenv()
 
+load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
 arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
