@@ -85,19 +85,29 @@ match WorkingLocation:
         originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
         newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
     case "4": # Testing 
-        TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
-        structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
+        # Linux Pathing
+        #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
+        #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
         # TODO newRoadStructureLocation
-        backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
+        #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
         # TODO outWorkSpace
-        newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
+        #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
         # TODO TempName = 'Temp'
         # TODO temporaryOutWorkspace 
         # TODO copyLocation
-        originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
+        #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
         # TODO newRoadStructureLocation
-        originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
+        #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
         # TODO newRouteLocation
+
+        # Windows Pathing
+        #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
+        #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
+        #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
+        #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
+        #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
+        #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
+
     case _:
         print("Exiting match/case")
         exit()
