@@ -91,6 +91,8 @@ match WorkingLocation:
         backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
         # TODO outWorkSpace
         newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
+        # TODO TempName = 'Temp'
+        # TODO temporaryOutWorkspace 
     else:
         exit()
 
