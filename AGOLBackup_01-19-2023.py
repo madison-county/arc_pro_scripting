@@ -5,8 +5,9 @@ from datetime import datetime, timedelta
 import time, os, shutil
 import Notification
 import getpass
-password=getpass.getpass('Enter Word: \t\n')
-# gis = GIS(profile="Tommy_AGOL_prof") # Does not work here.
+
+#password=getpass.getpass('Enter Word: \t\n')
+
 # Using current time for folder labels and process tracking  
 initialStartTime = datetime.now() 
 time.sleep(10)
