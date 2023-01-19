@@ -94,6 +94,7 @@ match WorkingLocation:
         # TODO TempName = 'Temp'
         # TODO temporaryOutWorkspace 
         # TODO copyLocation
+        originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
     else:
         exit()
 
