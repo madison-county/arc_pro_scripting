@@ -5,8 +5,12 @@ from datetime import datetime, timedelta
 import time, os, shutil
 import Notification
 import getpass
+from dotenv import load_dotenv
+
 
 #password=getpass.getpass('Enter Word: \t\n')
+load_dotenv()
+ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
 # Using current time for folder labels and process tracking  
 initialStartTime = datetime.now() 
