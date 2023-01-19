@@ -98,7 +98,8 @@ match WorkingLocation:
         # TODO newRoadStructureLocation
         originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
         # TODO newRouteLocation
-    else:
+    case _:
+        print("Exiting match/case")
         exit()
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
