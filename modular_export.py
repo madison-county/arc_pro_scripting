@@ -1,6 +1,9 @@
 import arcpy
 import ctypes
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
