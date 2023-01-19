@@ -442,6 +442,3 @@ print('\t\t\tAt:  ' + str(datetime.now()) + '\nCompared to estimated time of: ' 
 print(str(estCompletedTime-initialStartTime))
 wavName = 'Ring08.wav'
 Notification.endTone(wavName)
-
-#To process after Changes:
-#arcpy.management.AddJoin(r"Online_MC_Layers\SiteStructureAddressPoints", "Site_NGUID", "StructuresTable", "Site_NGUID", "KEEP_ALL")
