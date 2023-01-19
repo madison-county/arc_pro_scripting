@@ -7,7 +7,6 @@ import Notification
 import getpass
 from dotenv import load_dotenv
 
-
 #password=getpass.getpass('Enter Word: \t\n')
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
@@ -86,7 +85,7 @@ match WorkingLocation:
         originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
         newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
     case "4": # Testing 
-        pass
+        TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
     else:
         exit()
 
