@@ -6,13 +6,17 @@ from arcgis.gis import *
 from arcgis.gis import GIS
 from dotenv import load_dotenv
 
-
+# Load user ArcGIS password from the .env file
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
+# Set the default project working directory
 arcpy.env.workspace = (r"C:/Users/jboyk/map_stuff/test_project_2")
+
+# Load the default ctypes message window for debugging
 message_box = ctypes.windll.user32.MessageBoxW
 
+# Instantiate parameters for user entry on the ArcGIS Pro side
 feature_class_name = arcpy.GetParameterAsText(0)
 selection_field = arcpy.GetParameterAsText(1)
 field_value = arcpy.GetParameterAsText(2)
