@@ -89,6 +89,7 @@ match WorkingLocation:
         structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
         # TODO newRoadStructureLocation
         backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
+        # TODO outWorkSpace
     else:
         exit()
 
