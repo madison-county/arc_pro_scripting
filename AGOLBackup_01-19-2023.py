@@ -82,8 +82,6 @@ elif WorkingLocation == "3": # Old Server
 else:
     exit()
 
-
-
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     # printing initial_date  
     runTime = datetime.now() - initialStartTime
@@ -169,7 +167,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
     print('FGDB_name: ' + FGDB_name)
     TimeCalculation(initialStartTime)
     return input_file_name, output_file_name, FGDB_name
-
 
 ## Placeholder portion of the script.
 
@@ -259,7 +256,6 @@ def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
     TimeCalculation(initialStartTime)
 
 ## Placeholder portion of the script.
-
 ##                 New Code 8-12-20
 
 def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder):
@@ -283,7 +279,6 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
     runTime = TimeCalculation(initialStartTime)
     print("\n\n" + "Backup Completed with a Run Time of: " + str(runTime))
     print("At:  " + str(datetime.now()) + "\n \n")
-
 
 ## Placeholder portion of the script.
 
@@ -390,7 +385,6 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
 
 ## Placeholder portion of the script.
 
-
 text = 'tt' #    input('What Code? \n\t')
 
 Notification.notificationSound(text)
@@ -421,13 +415,9 @@ if connectedToServer == 'y':
 else:
     pass
 
-
-
 #routeTransfer = 'Y' #    ask_user('Should Python transfer Routes to the G drive now? Y or N: \n\n\t\t\t\t\t\t')
 routeTransfer = input('Shall I transfer Routes to the G drive now: Y or N \n\t').upper()
 print('You answered: ' + routeTransfer + '\n\t\t\t\t\t\t')
-
-
 
 if routeTransfer == 'Y':
     RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime) #    Copy routes to G drive
