@@ -40,6 +40,9 @@ def trim_and_export(feature_class_name, selection_field, field_value):
     message_box(None, "New Shapefile Trimmed and Created - {}".format(ARCGIS_PASSWORD), 0)
     return new_export
 
+cred_gis = GIS('https://www.arcgis.com', 'Jboyk_MadisonCounty', ARCGIS_PASSWORD)
+arcpy.AddMessage("Login Successful {}".format(cred_gis.properties.user.username))
+
 new_feature = trim_and_export(feature_class_name, selection_field, field_value)
 
 arcpy.AddMessage(new_feature)
