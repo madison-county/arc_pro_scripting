@@ -30,57 +30,60 @@ print('Folder Label is:  ' + label)
 WorkingLocation = input("\n\tEnter 1 if you are working via VPN. \n\tEnter 2 if you are working in the Annex. \n\tEnter 3 if you are working with the old server.\n\t")
 time.sleep(5)
 
-if WorkingLocation == "1": # VPN
-    print("You entered: " + WorkingLocation)
-    ###    Variables for OUT-OF-Office U:\4-15-21_G-Drive-COPY-COPY\GIS
-    TempsG = r'U:\GIS_2022\DailyData\Temps'  # will need to update to the T drive after migration. **************************************************************************************
-    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-    newRoadStructureLocation = r'U:\GIS_2022\DailyData\Road_Struct' + os.path.sep
-    backupFolder = r'E:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-    #backupFolder = r'U:\CompletedTasks\DataBackup\Backups' #+ os.path.sep # Original line changed 10/28/2021
-    outWorkspace =backupFolder + '\Backup-' + label
-    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-    TempName = 'Temp'
-    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-    newRoadStructureLocation = 'U:\GIS_2022/DailyData/Road_Struct/'
-    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-    newRouteLocation = r'U:\GIS_2022\DailyData\Road_Struct\Routing'
-elif WorkingLocation == "2": # Annex
-    print("You entered: " + WorkingLocation)
-    ##    Variables for T drive (GNAS server)
-    TempsG = r'T:\GIS_2022\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
-    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-    newRoadStructureLocation = r'T:\GIS_2022\DailyData\Road_Struct' + os.path.sep
-    backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-    outWorkspace =backupFolder + '\Backup-' + label
-    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-    TempName = 'Temp'
-    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-    newRoadStructureLocation = 'T:/GIS_2022/DailyData/Road_Struct/'
-    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-    newRouteLocation = r'T:\GIS_2022\DailyData\Road_Struct\Routing'
-elif WorkingLocation == "3": # Old Server
-    print("You entered: " + WorkingLocation)
-    ##    Variables for G drive (s2 server) 
-    TempsG = r'T\GIS\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
-    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-    newRoadStructureLocation = r'T:\GIS\DailyData\Road_Struct' + os.path.sep
-    backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-    outWorkspace =backupFolder + '\Backup-' + label
-    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-    TempName = 'Temp'
-    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-    newRoadStructureLocation = 'T:/GIS/DailyData/Road_Struct/'
-    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-    newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
-else:
-    exit()
+match WorkingLocation:
+    case "1": # VPN
+        print("You entered: " + WorkingLocation)
+        ###    Variables for OUT-OF-Office U:\4-15-21_G-Drive-COPY-COPY\GIS
+        TempsG = r'U:\GIS_2022\DailyData\Temps'  # will need to update to the T drive after migration. **************************************************************************************
+        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+        newRoadStructureLocation = r'U:\GIS_2022\DailyData\Road_Struct' + os.path.sep
+        backupFolder = r'E:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+        #backupFolder = r'U:\CompletedTasks\DataBackup\Backups' #+ os.path.sep # Original line changed 10/28/2021
+        outWorkspace =backupFolder + '\Backup-' + label
+        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+        TempName = 'Temp'
+        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+        newRoadStructureLocation = 'U:\GIS_2022/DailyData/Road_Struct/'
+        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+        newRouteLocation = r'U:\GIS_2022\DailyData\Road_Struct\Routing'
+    case "2": # Annex
+        print("You entered: " + WorkingLocation)
+        ##    Variables for T drive (GNAS server)
+        TempsG = r'T:\GIS_2022\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
+        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+        newRoadStructureLocation = r'T:\GIS_2022\DailyData\Road_Struct' + os.path.sep
+        backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+        outWorkspace =backupFolder + '\Backup-' + label
+        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+        TempName = 'Temp'
+        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+        newRoadStructureLocation = 'T:/GIS_2022/DailyData/Road_Struct/'
+        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+        newRouteLocation = r'T:\GIS_2022\DailyData\Road_Struct\Routing'
+    case "3": # Old Server
+        print("You entered: " + WorkingLocation)
+        ##    Variables for G drive (s2 server) 
+        TempsG = r'T\GIS\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
+        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+        newRoadStructureLocation = r'T:\GIS\DailyData\Road_Struct' + os.path.sep
+        backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+        outWorkspace =backupFolder + '\Backup-' + label
+        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+        TempName = 'Temp'
+        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+        newRoadStructureLocation = 'T:/GIS/DailyData/Road_Struct/'
+        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+        newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
+    case "4": # Testing 
+        pass
+    else:
+        exit()
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     # printing initial_date  
