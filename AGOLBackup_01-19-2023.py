@@ -189,7 +189,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
     return input_file_name, output_file_name, FGDB_name
 
 ## Placeholder portion of the script.
-
 def extractZipFile(input_file_name, output_file_name, initialStartTime):
     with ZipFile(input_file_name, 'r') as zip:     # Extracts the files into backup folder.
         print('Extracting the following files now...')
@@ -213,7 +212,6 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
     return FGDB_name
 
 ## Placeholder portion of the script.
-
 def ask_user(prompt):    ## This is the user input function that only evaluates for "Yes" or "No"
     check = str(input(prompt)).lower().strip()
     try:
@@ -230,7 +228,6 @@ def ask_user(prompt):    ## This is the user input function that only evaluates 
         return ask_user('You entered an invalid input. Please enter \"Yes\" or \"No\" (or \"Y\" or \"N\"):\t\t\t')
 
 ## Placeholder portion of the script.
-
 def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime):     # Sends files to the E drive
     #arcpy.env.workspace = structuresFolder
     #arcpy.env.overwriteOutput = True
@@ -249,8 +246,8 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     
     arcpy.env.overwriteOutput = False
     TimeCalculation(initialStartTime)
-## Placeholder portion of the script.
 
+## Placeholder portion of the script.
 def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
     root_src_dir = copyLocation
     root_dst_dir = structuresFolder
@@ -271,8 +268,6 @@ def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
     TimeCalculation(initialStartTime)
 
 ## Placeholder portion of the script.
-##                 New Code 8-12-20
-
 def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder):
     print("Creating Folder: " + label)
     print("Copying Files....")
@@ -319,7 +314,6 @@ def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
     print("At:  " + str(datetime.now()))
 
 ## Placeholder portion of the script.
-
 def RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime):
     print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
     for filename in os.listdir(originalRoadStructureLocation):
@@ -345,7 +339,6 @@ def RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, i
     print('\n \n  Roads and Structures were copied \n \n')
 
 ## Placeholder portion of the script.
-
 def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
     #    Copy Temps to E drive.
     #TempsG = "G:/GIS/DailyData/Temps/"
@@ -397,7 +390,6 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print('\n \n  Routes were copied \n \n')
 
 ## Placeholder portion of the script.
-
 text = 'tt' #    input('What Code? \n\t')
 
 Notification.notificationSound(text)
