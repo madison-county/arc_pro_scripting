@@ -7,7 +7,6 @@ import getpass
 from dotenv import load_dotenv
 from zipfile import ZipFile 
 
-#password=getpass.getpass('Enter Word: \t\n')
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
@@ -298,9 +297,8 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
     print("At:  " + str(datetime.now()) + "\n \n")
 
 ## Placeholder portion of the script.
-
 def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
-    #    Copy Temps to E drive.
+    #Copy Temps to E drive.
     #TempsG = "G:/GIS/DailyData/Temps/"
     #newTempLocation = "E:/GIS/DailyData/Temps_Local/"
     #TempName = 'TemporaryAddress'
