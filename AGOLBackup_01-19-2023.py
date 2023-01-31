@@ -119,7 +119,6 @@ def TimeCalculation(initialStartTime):    ## This is the time tracking code func
     return runTime 
 
 ## Placeholder portion of the script.
-
 def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backup Folder.
     path = os.path.join(backupFolder + os.path.sep + 'Backup-'+ label + '-Geodata')
     if not os.path.exists(path):
@@ -127,8 +126,8 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
     return path
     print('MakePath Complete: ' + path)
     TimeCalculation(initialStartTime)
-## Placeholder portion of the script.
 
+## Placeholder portion of the script.
 def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
     # Get the current date and time-----------------------------------------------------------------------------------------
     date_time = time.strftime('%m%d%Y%H%M')
@@ -136,7 +135,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
 
     # Login to ArcGIS Online------------------------------------------------------------------------------------------------
     #cred_gis = GIS(username="GeodataMadison",password="1141_DAHLIA_dog")
-    #password=getpass.getpass('Enter Word: \t\n')
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
