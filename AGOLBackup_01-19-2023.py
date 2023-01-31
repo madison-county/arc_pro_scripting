@@ -1,11 +1,11 @@
 from arcgis.gis import *
 from arcgis.gis import GIS
-import os, datetime, time, arcpy
+import os, datetime, time, arcpy, shutil
 from datetime import datetime, timedelta
-import time, os, shutil
 import Notification
 import getpass
 from dotenv import load_dotenv
+from zipfile import ZipFile 
 
 #password=getpass.getpass('Enter Word: \t\n')
 load_dotenv()
@@ -121,7 +121,6 @@ def TimeCalculation(initialStartTime):    ## This is the time tracking code func
 ## Placeholder portion of the script.
 
 def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backup Folder.
-    import os
     path = os.path.join(backupFolder + os.path.sep + 'Backup-'+ label + '-Geodata')
     if not os.path.exists(path):
         os.makedirs(path)
@@ -131,19 +130,12 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
 ## Placeholder portion of the script.
 
 def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
-    # coding: utf-8
-    #from arcgis.gis import *
-    #from arcgis.gis import GIS
-    #import os, datetime, time, arcpy
-    
     # Get the current date and time-----------------------------------------------------------------------------------------
     date_time = time.strftime('%m%d%Y%H%M')
     print('Download Process started:   \t\t\t\t\t\t L__41 \t' + time.ctime())
 
     # Login to ArcGIS Online------------------------------------------------------------------------------------------------
     #cred_gis = GIS(username="GeodataMadison",password="1141_DAHLIA_dog")
-    #import getpass
-    from arcgis.gis import GIS
     #password=getpass.getpass('Enter Word: \t\n')
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
@@ -201,9 +193,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
 ## Placeholder portion of the script.
 
 def extractZipFile(input_file_name, output_file_name, initialStartTime):
-    # importing required modules 
-    from zipfile import ZipFile 
-
     with ZipFile(input_file_name, 'r') as zip:     # Extracts the files into backup folder.
         print('Extracting the following files now...')
         print(zip.namelist())
@@ -265,8 +254,6 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
 ## Placeholder portion of the script.
 
 def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
-    import os
-    import shutil
     root_src_dir = copyLocation
     root_dst_dir = structuresFolder
     
@@ -388,7 +375,6 @@ def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
     print("At:  " + str(datetime.now()))
 
 ## Placeholder portion of the script.
-
 def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
     for filename in os.listdir(originalRouteLocation):
