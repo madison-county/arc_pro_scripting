@@ -50,9 +50,6 @@ pathing_locations = [TempsG,
                     originalRouteLocation,
                     newRouteLocation]
 
-for path in pathing_locations:
-    print(path)
-
 def main():
     path = MakePath(backupFolder, label, initialStartTime)
     print('*** Main path: {} ***'.format(path))
