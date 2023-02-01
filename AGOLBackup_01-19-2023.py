@@ -107,7 +107,7 @@ if WorkingLocation == "4": # Testing
     outWorkspace = backupFolder + '/Backup-' + label
     newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
     TempName = 'Temp'
-    # TODO temporaryOutWorkspace
+    temporaryOutWorkspace = outWorkspace + '/Temps' + label
     # TODO copyLocation
     originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/routing/'
     originalRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/original_routing/'
