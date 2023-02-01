@@ -126,7 +126,9 @@ def TimeCalculation(initialStartTime):    ## This is the time tracking code func
 ## Placeholder portion of the script.
 def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backup Folder.
     path = os.path.join(backupFolder + os.path.sep + 'Backup-'+ label + '-Geodata')
+    print('***** {} *****'.format(path))
     if not os.path.exists(path):
+        print('*** Creating new directory - MakePath function call: {} ***'.format(path))
         os.makedirs(path)
     print('MakePath Complete: ' + path)
     TimeCalculation(initialStartTime)
