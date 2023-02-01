@@ -215,7 +215,7 @@ def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
 def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder):
     print("Creating Folder: " + label)
     print("Copying Files....")
-    err = "Something went awry on L_274"
+    err = "Something went awry in CopyStructuresTempsToBackupFolder_G function"
     if os.path.exists(outWorkspace):
         print("Already Done :( ")
 
