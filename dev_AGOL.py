@@ -175,6 +175,21 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     arcpy.env.overwriteOutput = False
     TimeCalculation(initialStartTime)
 
+def ask_user(prompt):    ## This is the user input function that only evaluates for "Yes" or "No"
+    check = str(input(prompt)).lower().strip()
+    try:
+        if check[0] == 'y':
+            return 'y' #    True
+        elif check[0] == 'n':
+            return 'n' #    False
+        else:
+            print('Invalid Input')
+            return ask_user('You entered an invalid input. Please enter \"Yes\" or \"No\" (or \"Y\" or \"N\"):\t\t\t')
+    except Exception as error:
+        #print("Please enter valid inputs")
+        print(error)
+        return ask_user('You entered an invalid input. Please enter \"Yes\" or \"No\" (or \"Y\" or \"N\"):\t\t\t')
+
 if __name__ == "__main__":
     main()
 
