@@ -11,3 +11,15 @@ ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 # Using current time for folder labels and process tracking  
 initialStartTime = datetime.now() 
 time.sleep(10)
+
+label = 'testing_label'
+currentTime = str(datetime.now())  
+date = str(datetime.now())[:10]    
+hour = str(datetime.now())[11:13]    
+minute = str(datetime.now())[14:16]    
+second = str(datetime.now())[16:18]
+print(currentTime)
+print('Initial Start Time is:  \t\t\t\t\t\t\t\t\t' + str(initialStartTime))
+estCompletedTime = initialStartTime + timedelta(minutes = 6)  #    datetime.timedelta(minutes = 10)
+print('Expected completion time is:   \t\t\t\t\t\t\t' + str(estCompletedTime))
+print('Folder Label is:  ' + label)
