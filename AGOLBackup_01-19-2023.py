@@ -101,13 +101,13 @@ if WorkingLocation == "4": # Testing
 
     # Windows Pathing
     # TODO
-    #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
+    TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/'
     #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
     #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
     #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
     #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
     #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
-    
+
 else:
     print("Exiting match/case")
     exit()
