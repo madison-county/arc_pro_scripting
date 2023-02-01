@@ -111,6 +111,7 @@ if WorkingLocation == "4": # Testing
     # TODO copyLocation
     originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/routing/'
     originalRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/original_routing/'
+    newRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_routes/'
 
 else:
     print("Exiting match/case")
