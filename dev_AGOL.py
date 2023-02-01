@@ -52,3 +52,7 @@ pathing_locations = [TempsG,
 
 for path in pathing_locations:
     print(path)
+
+def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
+    runTime = datetime.now() - initialStartTime
+    return runTime 
