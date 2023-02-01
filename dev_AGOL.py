@@ -71,5 +71,87 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
     TimeCalculation(initialStartTime)
     return path
 
+def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
+    # Get the current date and time-----------------------------------------------------------------------------------------
+    date_time = time.strftime('%m%d%Y%H%M')
+    print('Download Process started:   \t\t\t\t\t\t L__41 \t' + time.ctime())
+
+    # Login to ArcGIS Online------------------------------------------------------------------------------------------------
+    #cred_gis = GIS(username="GeodataMadison",password="1141_DAHLIA_dog")
+
+    cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
+    print('Succcessfully logged in as '+ cred_gis.properties.user.username)
+    print('Login successful \t\t\t\t\t\t\t\t L__45 \t' + str(time.ctime()))
+    # Define the ArcGIS Online Item ID for Core Data------------------------------------------------------------------------
+    coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
+    # coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
+    print('The coreFeatureService is defined \t\t\t\t\t L__49 \t' + str(time.ctime()))
+    
+    # Get the Core Data AGOL Items-------------------------------------------------------------------------------
+    coreFeature_item = cred_gis.content.get(coreFeatureService)
+    print('The GET command completed \t\t\t\t\t L__53 \t' + str(time.ctime()))
+    
+    #Notification.notificationSound(text)
+    
+    # Export the Structures and Roads Feature Services to FGDB--------------------------------------------------------------
+    coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'File Geodatabase') # This was used for the original script to download the feature classes via FDGB
+    #coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'Shapefile') #    Use this method to download shapefiles. Used to validate files if feature classes are not working. 
+    print('Export completed \t\t\t\t\t\t\t\t L__57 \t' + str(time.ctime()))
+    
+    # Download the FGDB-----------------------------------------------------------------------------------------------------
+    coreFeature_item_fgdb.download(save_path = backupFolder) # r'E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup')
+    print('Download completed \t\t\t\t\t\t\t L__61 \t' + str(time.ctime()))
+    
+    # Delete the FGDB Items in AGOL-----------------------------------------------------------------------------------------
+    coreFeature_item_fgdb.delete()
+    print('Temp file in AGOL deleted \t\t\t\t\t\t L__65 \t' + str(time.ctime()))
+    
+    # Create Variables for output text file
+    coreFeature_item_lyrs = coreFeature_item.layers
+    #backupFolder = r'E:\GIS\DailyData\2020-File-Cleanup\Grants\NG9-1-1_Grant_FY2019-21\Data\AGOLBackup' # E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup'
+    outSummary = backupFolder + os.path.sep + date_time +"_NG911_Backup_Summary" + ".txt"
+    input_file_name = backupFolder + os.path.sep + "CoreData" + date_time + ".zip" # Used in Tommy's script below.
+    output_file_name = input_file_name[:-4]
+    outFile = open(outSummary, 'w')
+    print('Variables created \t\t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
+    
+    #Create Summary Text File
+    for lyr in coreFeature_item_lyrs:
+        feat_cnt = lyr.query(where='OBJECTID > 0', return_count_only=True)
+        #arcpy.AddMessage ("Layer: {} ({})".format(lyr.properties.name, feat_cnt))
+        outFile.write("Layer: " + lyr.properties.name)
+        outFile.write("" + "\n")
+        outFile.write("      Count: " + str(feat_cnt))
+        outFile.write(""+"\n"+"\n")
+    
+    outFile.close()
+    print('Backup Summary Completed \t\t\t\t\t\t L__86 \t' + str(time.ctime()))
+    FGDB_name = extractZipFile(input_file_name, output_file_name, initialStartTime)
+    print('FGDB_name: ' + FGDB_name)
+    TimeCalculation(initialStartTime)
+    return input_file_name, output_file_name, FGDB_name
+
+def extractZipFile(input_file_name, output_file_name, initialStartTime):
+    with ZipFile(input_file_name, 'r') as zip:     # Extracts the files into backup folder.
+        print('Extracting the following files now...')
+        print(zip.namelist())
+        FGDB = zip.namelist()[0]
+        FGDB_name = FGDB[0:36]
+        zip.extractall(output_file_name)
+        print(output_file_name + '  is Done!\n') 
+    print('Backup/extraction process completed \t\t\t\t L_103 \t' + str(time.ctime()))
+    print('FGDB_name =  ' + FGDB_name)
+    # Set the workspace for ListFeatureClasses
+    workSpace = output_file_name + os.path.sep + FGDB_name + ".gdb"    # FGDB_Path
+    print('Workspace at line 143 is:  '+ workSpace) # '\n Or' + str(arcpy.env.workspace))
+    arcpy.env.workspace = workSpace #    output_file_name + os.path.sep + FGDB_name    # FGDB_Path
+    
+    # Use the ListFeatureClasses function to print a list of shapefiles.
+    featureclasses = arcpy.ListFeatureClasses()
+    print('\nDownloaded features are: ')
+    for fc in featureclasses:
+        print('\t' + fc)
+    return FGDB_name
+
 if __name__ == "__main__":
     main()
