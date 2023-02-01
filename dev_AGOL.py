@@ -163,6 +163,7 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     print('Workspace at line 195 is:  ' + str(arcpy.env.workspace))
     print('Local features are going to be overwritten with Online data')
     #    Creating TempsG shapefiles from feature classes.
+    # TODO - Fix shit breaking
     arcpy.conversion.FeatureClassToShapefile(output_file_name + os.path.sep + FGDB_name + '.gdb\SiteStructureAddressPoints;' + output_file_name + os.path.sep + FGDB_name + '.gdb\RoadCenterlines', structuresFolder + os.path.sep + 'TransferFolder')
     #arcpy.conversion.FeatureClassToShapefile(output_file_name + os.path.sep + FGDB_name + '\SiteStructureAddressPoints;' + output_file_name + os.path.sep + FGDB_name + '\RoadCenterlines', structuresFolder + os.path.sep + 'TransferFolder') # Original line from before 10/28/2021
     
