@@ -4,3 +4,7 @@ from arcgis.gis import GIS
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from zipfile import ZipFile 
+
+load_dotenv()
+ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
+
