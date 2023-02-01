@@ -236,6 +236,3 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
 
 if __name__ == "__main__":
     main()
-
-
-    # T:\01-Working_Data\03-Work_In_Progress\03-Jacob\AGOL\Backup-testing_label-Geodata
