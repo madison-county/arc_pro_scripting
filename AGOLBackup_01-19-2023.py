@@ -83,7 +83,6 @@ if WorkingLocation == "3": # Old Server
     originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
     newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
 if WorkingLocation == "4": # Testing 
-    pass
     # Linux Pathing
     #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
     #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
