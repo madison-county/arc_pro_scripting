@@ -3,7 +3,6 @@ from arcgis.gis import GIS
 import os, datetime, time, arcpy, shutil
 from datetime import datetime, timedelta
 #import Notification
-import getpass
 from dotenv import load_dotenv
 from zipfile import ZipFile 
 
