@@ -101,8 +101,8 @@ if WorkingLocation == "4": # Testing
 
     # Windows Pathing
     # TODO
-    TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/'
-    #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
+    TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps/'
+    structuresFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/structures'
     #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
     #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
     #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
