@@ -57,6 +57,7 @@ def main():
     path = MakePath(backupFolder, label, initialStartTime)
     print('*** Main path: {} ***'.format(path))
     input_file_name, output_file_name, FGDB_name = downloadFromAGOL(path, initialStartTime, ARCGIS_PASSWORD)
+    featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime)
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
