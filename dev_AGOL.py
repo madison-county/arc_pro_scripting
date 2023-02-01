@@ -54,7 +54,8 @@ for path in pathing_locations:
     print(path)
 
 def main():
-    pass
+    path = MakePath(backupFolder, label, initialStartTime)
+    print('*** Main path: {} ***'.format(path))
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
