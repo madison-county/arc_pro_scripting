@@ -154,5 +154,24 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
         print('\t' + fc)
     return FGDB_name
 
+def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime):     # Sends files to the E drive
+    #arcpy.env.workspace = structuresFolder
+    #arcpy.env.overwriteOutput = True
+    print('Workspace at line 195 is:  ' + str(arcpy.env.workspace))
+    print('Local features are going to be overwritten with Online data')
+    #    Creating TempsG shapefiles from feature classes.
+    arcpy.conversion.FeatureClassToShapefile(output_file_name + os.path.sep + FGDB_name + '.gdb\SiteStructureAddressPoints;' + output_file_name + os.path.sep + FGDB_name + '.gdb\RoadCenterlines', structuresFolder + os.path.sep + 'TransferFolder')
+    #arcpy.conversion.FeatureClassToShapefile(output_file_name + os.path.sep + FGDB_name + '\SiteStructureAddressPoints;' + output_file_name + os.path.sep + FGDB_name + '\RoadCenterlines', structuresFolder + os.path.sep + 'TransferFolder') # Original line from before 10/28/2021
+    
+    arcpy.CopyFeatures_management(structuresFolder + os.path.sep + 'TransferFolder\SiteStructureAddressPoints.shp', structuresFolder + os.path.sep + 'TransferFolder' + os.path.sep + '2020_Structures.shp')
+    arcpy.CopyFeatures_management(structuresFolder + os.path.sep + 'TransferFolder\RoadCenterlines.shp', structuresFolder + os.path.sep + 'TransferFolder' + os.path.sep + '2020_Roads.shp')
+    arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\SiteStructureAddressPoints.shp')    # Removes the SiteStructureAddressPoints Shape File from the E:\..Road_Struct Folder.
+    arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\RoadCenterlines.shp')    # Removes the RoadCenterlines Shape File from the E:\..Road_Struct Folder.
+    arcpy.Delete_management(output_file_name) #    Deletes the 2020_files from the Transfer folder.
+    print('Files and folders transferred \t\t\t\t\t L_185')
+    
+    arcpy.env.overwriteOutput = False
+    TimeCalculation(initialStartTime)
+
 if __name__ == "__main__":
     main()
