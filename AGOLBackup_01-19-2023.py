@@ -128,9 +128,9 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
     path = os.path.join(backupFolder + os.path.sep + 'Backup-'+ label + '-Geodata')
     if not os.path.exists(path):
         os.makedirs(path)
-    return path
     print('MakePath Complete: ' + path)
     TimeCalculation(initialStartTime)
+    return path
 
 ## Placeholder portion of the script.
 def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
