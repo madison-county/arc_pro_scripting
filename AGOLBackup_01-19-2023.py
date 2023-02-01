@@ -132,7 +132,7 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
     TimeCalculation(initialStartTime)
 
 ## Placeholder portion of the script.
-def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
+def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
     # Get the current date and time-----------------------------------------------------------------------------------------
     date_time = time.strftime('%m%d%Y%H%M')
     print('Download Process started:   \t\t\t\t\t\t L__41 \t' + time.ctime())
