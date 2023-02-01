@@ -56,3 +56,13 @@ for path in pathing_locations:
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
     return runTime 
+
+def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backup Folder.
+    path = os.path.join(backupFolder + 'Backup-'+ label + '-Geodata')
+    print('***** {} *****'.format(path))
+    if not os.path.exists(path):
+        print('*** Creating new directory - MakePath function call: {} ***'.format(path))
+        os.makedirs(path)
+    print('MakePath Complete: ' + path)
+    TimeCalculation(initialStartTime)
+    return path
