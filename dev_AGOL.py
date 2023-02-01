@@ -113,7 +113,8 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     output_file_name = input_file_name[:-4]
     outFile = open(outSummary, 'w')
     print('Variables created \t\t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
-    
+    print('Input file: {}\nOutput File: {}'.format(input_file_name, output_file_name))
+
     #Create Summary Text File
     for lyr in coreFeature_item_lyrs:
         feat_cnt = lyr.query(where='OBJECTID > 0', return_count_only=True)
@@ -126,6 +127,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     outFile.close()
     print('Backup Summary Completed \t\t\t\t\t\t L__86 \t' + str(time.ctime()))
     FGDB_name = extractZipFile(input_file_name, output_file_name, initialStartTime)
+    print('*** FGDB: {} ***'.format(FGDB_name))
     # TODO - Fix pathing issue here
     print('FGDB_name: ' + FGDB_name)
     TimeCalculation(initialStartTime)
