@@ -53,6 +53,9 @@ pathing_locations = [TempsG,
 for path in pathing_locations:
     print(path)
 
+def main():
+    pass
+
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
     return runTime 
@@ -66,3 +69,6 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
     print('MakePath Complete: ' + path)
     TimeCalculation(initialStartTime)
     return path
+
+if __name__ == "__main__":
+    main()
