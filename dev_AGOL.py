@@ -27,7 +27,7 @@ print('Folder Label is:  ' + label)
 TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps/'
 structuresFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/structures/'
 newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_roads/' + os.path.sep
-backupFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/'
+backupFolder = r"T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/"
 outWorkspace = backupFolder + '/Backup-' + label
 newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
 TempName = 'Temp'
@@ -110,7 +110,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     #backupFolder = r'E:\GIS\DailyData\2020-File-Cleanup\Grants\NG9-1-1_Grant_FY2019-21\Data\AGOLBackup' # E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup'
     outSummary = backupFolder + os.path.sep + date_time +"_NG911_Backup_Summary" + ".txt"
     # TODO - Fix input file name character errors
-    input_file_name = backupFolder + os.path.sep + "CoreData" + date_time + ".zip" # Used in Tommy's script below.
+    input_file_name = backupFolder + "/CoreData_" + date_time + ".zip" # Used in Tommy's script below.
     output_file_name = input_file_name[:-4] # removes .zip from the input file name
     outFile = open(outSummary, 'w')
     print('Variables created \t\t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
@@ -177,3 +177,6 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
 
 if __name__ == "__main__":
     main()
+
+
+    # T:\01-Working_Data\03-Work_In_Progress\03-Jacob\AGOL\Backup-testing_label-Geodata
