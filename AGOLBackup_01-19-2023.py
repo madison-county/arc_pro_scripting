@@ -110,7 +110,7 @@ if WorkingLocation == "4": # Testing
     # TODO temporaryOutWorkspace
     # TODO copyLocation
     originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/routing/'
-    #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
+    originalRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/original_routing/'
 
 else:
     print("Exiting match/case")
