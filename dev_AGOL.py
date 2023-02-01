@@ -78,9 +78,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     date_time = time.strftime('%m%d%Y%H%M')
     print('Download Process started:   \t\t\t\t\t\t L__41 \t' + time.ctime())
 
-    # Login to ArcGIS Online------------------------------------------------------------------------------------------------
-    #cred_gis = GIS(username="GeodataMadison",password="1141_DAHLIA_dog")
-
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
     print('Login successful \t\t\t\t\t\t\t\t L__45 \t' + str(time.ctime()))
