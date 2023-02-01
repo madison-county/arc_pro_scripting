@@ -26,13 +26,13 @@ print('Folder Label is:  ' + label)
 # Windows Pathing
 TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps/'
 structuresFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/structures/'
-newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_roads/' + os.path.sep
+newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_roads/'
 backupFolder = r"T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/"
 outWorkspace = backupFolder + '/Backup-' + label
 newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
 TempName = 'Temp'
 temporaryOutWorkspace = outWorkspace + '/Temps' + label
-copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+copyLocation = structuresFolder + '/TransferFolder'
 originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/routing/'
 originalRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/original_routing/'
 newRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_routes/'
@@ -59,6 +59,7 @@ def main():
     input_file_name, output_file_name, FGDB_name = downloadFromAGOL(path, initialStartTime, ARCGIS_PASSWORD)
     featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime)
     copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime)
+    CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder)
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
@@ -146,7 +147,7 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
     print('Backup/extraction process completed \t\t\t\t L_103 \t' + str(time.ctime()))
     print('FGDB_name =  ' + FGDB_name)
     # Set the workspace for ListFeatureClasses
-    workSpace = output_file_name + os.path.sep + FGDB_name + ".gdb"    # FGDB_Path
+    workSpace = output_file_name + '/' + FGDB_name + ".gdb"    # FGDB_Path
     print('Workspace at line 143 is:  '+ workSpace) # '\n Or' + str(arcpy.env.workspace))
     arcpy.env.workspace = workSpace #    output_file_name + os.path.sep + FGDB_name    # FGDB_Path
     
@@ -164,10 +165,10 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     print('Local features are going to be overwritten with Online data')
     #    Creating TempsG shapefiles from feature classes.
     # TODO - Fix shit breaking
-    arcpy.conversion.FeatureClassToShapefile(output_file_name + '/' + FGDB_name + '.gdb\SiteStructureAddressPoints;' + output_file_name + '/' + FGDB_name + '.gdb/RoadCenterlines', structuresFolder + 'TransferFolder')
+    arcpy.conversion.FeatureClassToShapefile(output_file_name + '/' + FGDB_name + '.gdb/SiteStructureAddressPoints;' + output_file_name + '/' + FGDB_name + '.gdb/RoadCenterlines', structuresFolder + 'TransferFolder')
     #arcpy.conversion.FeatureClassToShapefile(output_file_name + os.path.sep + FGDB_name + '\SiteStructureAddressPoints;' + output_file_name + os.path.sep + FGDB_name + '\RoadCenterlines', structuresFolder + os.path.sep + 'TransferFolder') # Original line from before 10/28/2021
     
-    arcpy.CopyFeatures_management(structuresFolder + os.path.sep + 'TransferFolder\SiteStructureAddressPoints.shp', structuresFolder + os.path.sep + 'TransferFolder' + os.path.sep + '2020_Structures.shp')
+    arcpy.CopyFeatures_management(structuresFolder + '/' + 'TransferFolder/SiteStructureAddressPoints.shp', structuresFolder + '/' + 'TransferFolder' + '/' + '2020_Structures.shp')
     arcpy.CopyFeatures_management(structuresFolder + os.path.sep + 'TransferFolder\RoadCenterlines.shp', structuresFolder + os.path.sep + 'TransferFolder' + os.path.sep + '2020_Roads.shp')
     arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\SiteStructureAddressPoints.shp')    # Removes the SiteStructureAddressPoints Shape File from the E:\..Road_Struct Folder.
     arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\RoadCenterlines.shp')    # Removes the RoadCenterlines Shape File from the E:\..Road_Struct Folder.
@@ -210,6 +211,28 @@ def copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime):
                 os.remove(dst_file)
             shutil.move(src_file, dst_dir)
     TimeCalculation(initialStartTime)
+
+def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder):
+    print("Creating Folder: " + label)
+    print("Copying Files....")
+    err = "Something went awry on L_274"
+    if os.path.exists(outWorkspace):
+        print("Already Done :( ")
+
+    else: #IF IT DOES NOT EXIST, THEN EXECUTE THIS CODE
+        try:                # The try / excepts are only to hide the errors that would normally display
+            shutil.copytree(structuresFolder, outWorkspace, symlinks=False, ignore=shutil.ignore_patterns('*.lock'))
+            print("Structures copied")
+            shutil.copytree(TempsG, temporaryOutWorkspace, symlinks=False, ignore=shutil.ignore_patterns('*.lock'))
+            print("Temps copied")
+            #shutil.copytree(gpsLog, gpsLogOutWorkspace, symlinks=False, ignore=shutil.ignore_patterns('*.lock'))
+            #print("GPSLog copied")
+        except Exception as err:
+            print('Files not copied')
+            print(err)
+    runTime = TimeCalculation(initialStartTime)
+    print("\n\n" + "Backup Completed with a Run Time of: " + str(runTime))
+    print("At:  " + str(datetime.now()) + "\n \n")
 
 if __name__ == "__main__":
     main()
