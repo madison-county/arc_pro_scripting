@@ -13,7 +13,8 @@ ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 initialStartTime = datetime.now() 
 time.sleep(10)
 
-label = datetime.now().strftime("%Y-%m-%d_Time-%H-%M")    #Creates the timestamp for the label
+#label = datetime.now().strftime("%Y-%m-%d_Time-%H-%M")    #Creates the timestamp for the label
+label = 'testing_label'
 currentTime = str(datetime.now())  
 date = str(datetime.now())[:10]    
 hour = str(datetime.now())[11:13]    
@@ -72,7 +73,7 @@ if WorkingLocation == "3": # Old Server
     structuresFolder = r'E:\GIS\DailyData\Road_Struct'
     newRoadStructureLocation = r'T:\GIS\DailyData\Road_Struct' + os.path.sep
     backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-    outWorkspace =backupFolder + '\Backup-' + label
+    outWorkspace = backupFolder + '\Backup-' + label
     newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
     TempName = 'Temp'
     temporaryOutWorkspace = outWorkspace + '\Temps-' + label
@@ -101,7 +102,7 @@ if WorkingLocation == "4": # Testing
     # Windows Pathing
     TempsG = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps/'
     structuresFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/structures/'
-    # TODO newRoadStructureLocation
+    newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_roads/' + os.path.sep
     backupFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/'
     # TODO outWorkspace
     newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
