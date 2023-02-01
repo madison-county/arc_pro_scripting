@@ -104,7 +104,7 @@ if WorkingLocation == "4": # Testing
     structuresFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/structures/'
     newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_roads/' + os.path.sep
     backupFolder = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/'
-    # TODO outWorkspace
+    outWorkspace = backupFolder + '/Backup-' + label
     newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
     # TODO TempName
     # TODO temporaryOutWorkspace
