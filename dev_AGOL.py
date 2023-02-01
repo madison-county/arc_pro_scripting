@@ -10,7 +10,6 @@ ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
 # Using current time for folder labels and process tracking  
 initialStartTime = datetime.now() 
-time.sleep(10)
 
 label = 'testing_label'
 currentTime = str(datetime.now())  
