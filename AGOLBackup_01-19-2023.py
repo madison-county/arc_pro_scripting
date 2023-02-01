@@ -2,7 +2,7 @@ from arcgis.gis import *
 from arcgis.gis import GIS
 import os, datetime, time, arcpy, shutil
 from datetime import datetime, timedelta
-import Notification
+#import Notification
 import getpass
 from dotenv import load_dotenv
 from zipfile import ZipFile 
@@ -33,84 +33,84 @@ print('Folder Label is:  ' + label)
 WorkingLocation = input("\n\tEnter 1 if you are working via VPN. \n\tEnter 2 if you are working in the Annex. \n\tEnter 3 if you are working with the old server.\n\t")
 time.sleep(5)
 
-match WorkingLocation:
-    case "1": # VPN
-        print("You entered: " + WorkingLocation)
-        ###    Variables for OUT-OF-Office U:\4-15-21_G-Drive-COPY-COPY\GIS
-        TempsG = r'U:\GIS_2022\DailyData\Temps'  # will need to update to the T drive after migration. **************************************************************************************
-        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-        newRoadStructureLocation = r'U:\GIS_2022\DailyData\Road_Struct' + os.path.sep
-        backupFolder = r'E:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-        #backupFolder = r'U:\CompletedTasks\DataBackup\Backups' #+ os.path.sep # Original line changed 10/28/2021
-        outWorkspace =backupFolder + '\Backup-' + label
-        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-        TempName = 'Temp'
-        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-        newRoadStructureLocation = 'U:\GIS_2022/DailyData/Road_Struct/'
-        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-        newRouteLocation = r'U:\GIS_2022\DailyData\Road_Struct\Routing'
-    case "2": # Annex
-        print("You entered: " + WorkingLocation)
-        ##    Variables for T drive (GNAS server)
-        TempsG = r'T:\GIS_2022\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
-        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-        newRoadStructureLocation = r'T:\GIS_2022\DailyData\Road_Struct' + os.path.sep
-        backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-        outWorkspace =backupFolder + '\Backup-' + label
-        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-        TempName = 'Temp'
-        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-        newRoadStructureLocation = 'T:/GIS_2022/DailyData/Road_Struct/'
-        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-        newRouteLocation = r'T:\GIS_2022\DailyData\Road_Struct\Routing'
-    case "3": # Old Server
-        print("You entered: " + WorkingLocation)
-        ##    Variables for G drive (s2 server) 
-        TempsG = r'T\GIS\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
-        structuresFolder = r'E:\GIS\DailyData\Road_Struct'
-        newRoadStructureLocation = r'T:\GIS\DailyData\Road_Struct' + os.path.sep
-        backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
-        outWorkspace =backupFolder + '\Backup-' + label
-        newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
-        TempName = 'Temp'
-        temporaryOutWorkspace = outWorkspace + '\Temps-' + label
-        copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
-        originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
-        newRoadStructureLocation = 'T:/GIS/DailyData/Road_Struct/'
-        originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
-        newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
-    case "4": # Testing 
-        # Linux Pathing
-        #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
-        #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
-        # TODO newRoadStructureLocation
-        #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
-        # TODO outWorkSpace
-        #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
-        # TODO TempName = 'Temp'
-        # TODO temporaryOutWorkspace 
-        # TODO copyLocation
-        #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
-        # TODO newRoadStructureLocation
-        #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
-        # TODO newRouteLocation
+if WorkingLocation == "1": # VPN
+    print("You entered: " + WorkingLocation)
+    ###    Variables for OUT-OF-Office U:\4-15-21_G-Drive-COPY-COPY\GIS
+    TempsG = r'U:\GIS_2022\DailyData\Temps'  # will need to update to the T drive after migration. **************************************************************************************
+    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+    newRoadStructureLocation = r'U:\GIS_2022\DailyData\Road_Struct' + os.path.sep
+    backupFolder = r'E:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+    #backupFolder = r'U:\CompletedTasks\DataBackup\Backups' #+ os.path.sep # Original line changed 10/28/2021
+    outWorkspace =backupFolder + '\Backup-' + label
+    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+    TempName = 'Temp'
+    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+    newRoadStructureLocation = 'U:\GIS_2022/DailyData/Road_Struct/'
+    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+    newRouteLocation = r'U:\GIS_2022\DailyData\Road_Struct\Routing'
+if WorkingLocation == "2": # Annex
+    print("You entered: " + WorkingLocation)
+    ##    Variables for T drive (GNAS server)
+    TempsG = r'T:\GIS_2022\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
+    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+    newRoadStructureLocation = r'T:\GIS_2022\DailyData\Road_Struct' + os.path.sep
+    backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+    outWorkspace =backupFolder + '\Backup-' + label
+    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+    TempName = 'Temp'
+    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+    newRoadStructureLocation = 'T:/GIS_2022/DailyData/Road_Struct/'
+    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+    newRouteLocation = r'T:\GIS_2022\DailyData\Road_Struct\Routing'
+if WorkingLocation == "3": # Old Server
+    print("You entered: " + WorkingLocation)
+    ##    Variables for G drive (s2 server) 
+    TempsG = r'T\GIS\DailyData\Temps' # will need to update to the T drive after migration. **************************************************************************************
+    structuresFolder = r'E:\GIS\DailyData\Road_Struct'
+    newRoadStructureLocation = r'T:\GIS\DailyData\Road_Struct' + os.path.sep
+    backupFolder = r'T:\CompletedTasks\DataBackup\Backups' #+ os.path.sep
+    outWorkspace =backupFolder + '\Backup-' + label
+    newTempLocation = 'E:/GIS/DailyData/Temps_Local/'
+    TempName = 'Temp'
+    temporaryOutWorkspace = outWorkspace + '\Temps-' + label
+    copyLocation = structuresFolder + os.path.sep + 'TransferFolder'
+    originalRoadStructureLocation = 'E:/GIS/DailyData/Road_Struct/' #Line 350
+    newRoadStructureLocation = 'T:/GIS/DailyData/Road_Struct/'
+    originalRouteLocation = r'E:\GIS\DailyData\Road_Struct\Routing'
+    newRouteLocation = r'T:\GIS\DailyData\Road_Struct\Routing'
+if WorkingLocation == "4": # Testing 
+    pass
+    # Linux Pathing
+    #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
+    #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
+    # TODO newRoadStructureLocation
+    #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
+    # TODO outWorkSpace
+    #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
+    # TODO TempName = 'Temp'
+    # TODO temporaryOutWorkspace 
+    # TODO copyLocation
+    #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
+    # TODO newRoadStructureLocation
+    #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
+    # TODO newRouteLocation
 
-        # Windows Pathing
-        # TODO
-        #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
-        #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
-        #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
-        #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
-        #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
-        #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
-
-    case _:
-        print("Exiting match/case")
-        exit()
+    # Windows Pathing
+    # TODO
+    #TempsG = r'mnt/c/Users/jboyk/code_stuff/online_backups'
+    #structuresFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/Road_Struct'
+    #backupFolder = r'mnt/c/Users/jboyk/code_stuff/online_backups/backups_test'
+    #newTempLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Temps_Local'
+    #originalRoadStructureLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Roads'
+    #originalRouteLocation = r'mnt/c/Users/jboyk/code_stuff/online_backups/Routing'
+    
+else:
+    print("Exiting match/case")
+    exit()
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     # printing initial_date  
@@ -148,7 +148,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, password):    # Downloads t
     coreFeature_item = cred_gis.content.get(coreFeatureService)
     print('The GET command completed \t\t\t\t\t L__53 \t' + str(time.ctime()))
     
-    Notification.notificationSound(text)
+    #Notification.notificationSound(text)
     
     # Export the Structures and Roads Feature Services to FGDB--------------------------------------------------------------
     coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'File Geodatabase') # This was used for the original script to download the feature classes via FDGB
@@ -392,7 +392,7 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
 ## Placeholder portion of the script.
 text = 'tt' #    input('What Code? \n\t')
 
-Notification.notificationSound(text)
+#Notification.notificationSound(text)
 path = MakePath(backupFolder, label, initialStartTime)
 print("The save path is: " + path)
 text = 'aa' #    input('What Code? \n\t')
@@ -405,7 +405,7 @@ time.sleep(1)
 
 copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime)
 
-Notification.notificationSound('MovingOn')
+#Notification.notificationSound('MovingOn')
 print('L_348')
 
 ##                 New Code 8-12-20
@@ -416,7 +416,7 @@ if connectedToServer == 'y':
     TempsToE(TempsG, newTempLocation, TempName, initialStartTime)
     RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
     wavName = 'Alarm06.wav'
-    Notification.endTone(wavName)
+    #Notification.endTone(wavName)
 else:
     pass
 
@@ -430,10 +430,10 @@ if routeTransfer == 'Y':
 else:
     print('Routes were NOT transferred')
 
-Notification.notificationSound('Complete')
+#Notification.notificationSound('Complete')
 runTime = TimeCalculation(initialStartTime)
 print('\n \n \nThe entire backup and file transfer process has completed with a Run Time of: \n\t\t\t\t\t' + str(runTime) + '\n')
 print('\t\t\tAt:  ' + str(datetime.now()) + '\nCompared to estimated time of: ' + str(estCompletedTime))
 print(str(estCompletedTime-initialStartTime))
 wavName = 'Ring08.wav'
-Notification.endTone(wavName)
+#Notification.endTone(wavName)
