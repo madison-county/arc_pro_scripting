@@ -4,6 +4,7 @@ from arcgis.gis import GIS
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from zipfile import ZipFile 
+from inspect import currentframe, getframeinfo
 
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
@@ -219,7 +220,6 @@ def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
             pass
         else:
             if filename.startswith(TempName):
-    
                 srcLS = os.path.join(TempsG,filename)
                 print(srcLS + "  has been copied.")
                 shutil.copy2(srcLS,newTempLocation)
@@ -256,16 +256,16 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     for filename in os.listdir(originalRouteLocation):
         try:
             if os.path.isdir(filename):
-                print(filename + "  is a folder and was not copied")
+                print(filename + " is a folder and was not copied")
                 continue
             elif filename.endswith(".lock"):
-                print(filename + "  was not copied")
+                print(filename + " was not copied")
                 continue
             else:
         #        if filename.startswith("1000_Pt_Routes"):
                 srcTAL = os.path.join(originalRouteLocation,filename)
                 print(srcTAL + "  has been copied.")
-                shutil.copy2(srcTAL,newRouteLocation)
+                shutil.copy2(srcTAL, newRouteLocation)
         except IOError:
             print("\n " + filename + "  was PASSED over. \n")
             print(IOError)
