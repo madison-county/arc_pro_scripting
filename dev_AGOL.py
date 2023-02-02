@@ -323,7 +323,9 @@ def route_transfer():
             print('Invalid input detected. - Enter "Y" or "N"\n')
 
 def roads_routes_transfer(feature_class, string_arg):
-    pass
+    valid_input = False
+    while not valid_input:
+        pass
 
 if __name__ == "__main__":
     main()
