@@ -36,17 +36,17 @@ originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jaco
 originalRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/original_routing/'
 newRouteLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/new_routes/'
 
-pathing_locations = [TempsG, 
-                     structuresFolder, 
-                    newRoadStructureLocation,
-                    backupFolder,
-                    outWorkspace,
-                    newTempLocation,
-                    temporaryOutWorkspace,
-                    copyLocation,
-                    originalRoadStructureLocation,
-                    originalRouteLocation,
-                    newRouteLocation]
+#pathing_locations = [TempsG, 
+#                     structuresFolder, 
+#                    newRoadStructureLocation,
+#                    backupFolder,
+#                    outWorkspace,
+#                    newTempLocation,
+#                    temporaryOutWorkspace,
+#                    copyLocation,
+#                    originalRoadStructureLocation,
+#                    originalRouteLocation,
+#                    newRouteLocation]
 
 def main():
     path = MakePath(backupFolder, label, initialStartTime)
@@ -223,6 +223,25 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
     runTime = TimeCalculation(initialStartTime)
     print("\n\n" + "Backup Completed with a Run Time of: " + str(runTime))
     print("At:  " + str(datetime.now()) + "\n \n")
+
+def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
+    #Copy Temps to E drive.
+    print("\n \n" + "Copying Temps over" + "\n \n")
+    
+    for filename in os.listdir(TempsG):
+        if filename.endswith(".lock"):
+            print(filename + "  was not copied")
+            pass
+        else:
+            if filename.startswith(TempName):
+    
+                srcLS=os.path.join(TempsG,filename)
+                print(srcLS + "  has been copied.")
+                shutil.copy2(srcLS,newTempLocation)
+    #            print(filename + "  has been copied.")
+    runTime = TimeCalculation(initialStartTime)
+    print("\n\n" + "Temp transfer completed with a Run Time of: " + str(runTime))
+    print("At:  " + str(datetime.now()))
 
 if __name__ == "__main__":
     main()
