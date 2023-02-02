@@ -296,11 +296,13 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
 def route_transfer():
     user_prompt = input('Transfer routes to the G Drive? [Y or N]:\n').upper()
     valid_input = False
-    if user_prompt == 'Y':
-        RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
-        print('Routes have been transfered')
-    else:
-        print('Routes have not been transferred')
+    while not valid_input:
+        if user_prompt == 'Y':
+            RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
+            print('Routes have been transfered')
+            valid_input = True
+        else:
+            print('Routes have not been transferred')
 
 def roads_transfer():
     user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
