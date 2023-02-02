@@ -327,6 +327,10 @@ def roads_routes_transfer(feature_class, string_arg):
     while not valid_input:
         user_prompt = input(string_arg)
         if user_prompt == 'Y':
+            if feature_class == 'Routes':
+                pass
+            else:
+                pass
             valid_input = True
         elif user_prompt == 'N':
             print('{} will NOT be transferred'.format(feature_class))
