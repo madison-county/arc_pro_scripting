@@ -55,8 +55,6 @@ def main():
     featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime)
     copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime)
     CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder)
-    #roads_transfer()
-    #route_transfer()
     roads_routes_transfer('Roads', 'Are you connected to the server? [Y or N]:\n')
     roads_routes_transfer('Routes', 'Transfer routes to the G Drive? [Y or N]:\n')
 
