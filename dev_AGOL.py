@@ -75,33 +75,33 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
 def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
     # Get the current date and time-----------------------------------------------------------------------------------------
     date_time = time.strftime('%m%d%Y%H%M')
-    print('Download Process started:   \t\t\t\t\t\t {} \t'.format(get_line()) + time.ctime())
+    print('Download Process started:   \t\t\t\t\t\t Line: {} \t'.format(get_line()) + time.ctime())
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
     print('Login successful \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
     # Define the ArcGIS Online Item ID for Core Data------------------------------------------------------------------------
     coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
-    print('The coreFeatureService is defined \t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('The coreFeatureService is defined \t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     
     # Get the Core Data AGOL Items-------------------------------------------------------------------------------
     coreFeature_item = cred_gis.content.get(coreFeatureService)
-    print('The GET command completed \t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('The GET command completed \t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     
     #Notification.notificationSound(text)
     
     # Export the Structures and Roads Feature Services to FGDB--------------------------------------------------------------
     coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'File Geodatabase') # This was used for the original script to download the feature classes via FDGB
     #coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'Shapefile') #    Use this method to download shapefiles. Used to validate files if feature classes are not working. 
-    print('Export completed \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Export completed \t\t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     
     # Download the FGDB-----------------------------------------------------------------------------------------------------
     coreFeature_item_fgdb.download(save_path = backupFolder) # r'E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup')
-    print('Download completed \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Download completed \t\t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     
     # Delete the FGDB Items in AGOL-----------------------------------------------------------------------------------------
     coreFeature_item_fgdb.delete()
-    print('Temp file in AGOL deleted \t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Temp file in AGOL deleted \t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     
     # Create Variables for output text file
     coreFeature_item_lyrs = coreFeature_item.layers
@@ -111,7 +111,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     input_file_name = backupFolder + "/CoreData_" + date_time + ".zip" # Used in Tommy's script below.
     output_file_name = input_file_name[:-4] # removes .zip from the input file name
     outFile = open(outSummary, 'w')
-    print('Variables created \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Variables created \t\t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
 
     #Create Summary Text File
     for lyr in coreFeature_item_lyrs:
@@ -123,7 +123,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
         outFile.write(""+"\n"+"\n")
     
     outFile.close()
-    print('Backup Summary Completed \t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Backup Summary Completed \t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     FGDB_name = extractZipFile(input_file_name, output_file_name, initialStartTime)
     print('*** FGDB: {} ***'.format(FGDB_name))
     # TODO - Fix pathing issue here
@@ -139,7 +139,7 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
         FGDB_name = FGDB[0:36]
         zip.extractall(output_file_name)
         print(output_file_name + '  is Done!\n') 
-    print('Backup/extraction process completed \t\t\t\t L_103 \t' + str(time.ctime()))
+    print('Backup/extraction process completed \t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
     print('FGDB_name =  ' + FGDB_name)
     # Set the workspace for ListFeatureClasses
     workSpace = output_file_name + '/' + FGDB_name + ".gdb"    # FGDB_Path
