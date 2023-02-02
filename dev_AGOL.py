@@ -30,7 +30,6 @@ newRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGO
 backupFolder = r"T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/backup/"
 outWorkspace = backupFolder + '/Backup-' + label
 newTempLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/temps_local/'
-TempName = 'Temp'
 temporaryOutWorkspace = outWorkspace + '/Temps' + label
 copyLocation = structuresFolder + '/TransferFolder'
 originalRoadStructureLocation = r'T:/01-Working_Data/03-Work_In_Progress/03-Jacob/AGOL/routing/'
@@ -43,7 +42,6 @@ pathing_locations = [TempsG,
                     backupFolder,
                     outWorkspace,
                     newTempLocation,
-                    TempName,
                     temporaryOutWorkspace,
                     copyLocation,
                     originalRoadStructureLocation,
@@ -212,7 +210,6 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
     err = "Something went awry in CopyStructuresTempsToBackupFolder_G function"
     if os.path.exists(outWorkspace):
         print("Already Done :( ")
-
     else: #IF IT DOES NOT EXIST, THEN EXECUTE THIS CODE
         try:                # The try / excepts are only to hide the errors that would normally display
             shutil.copytree(structuresFolder, outWorkspace, symlinks=False, ignore=shutil.ignore_patterns('*.lock'))
