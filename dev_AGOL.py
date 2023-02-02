@@ -111,7 +111,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     input_file_name = backupFolder + "/CoreData_" + date_time + ".zip" # Used in Tommy's script below.
     output_file_name = input_file_name[:-4] # removes .zip from the input file name
     outFile = open(outSummary, 'w')
-    print('Variables created \t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
+    print('Variables created \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
 
     #Create Summary Text File
     for lyr in coreFeature_item_lyrs:
