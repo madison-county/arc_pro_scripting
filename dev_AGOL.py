@@ -301,6 +301,8 @@ def route_transfer():
             RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
             print('Routes have been transfered')
             valid_input = True
+        elif user_prompt == 'N':
+            print('Routes have not been transferred')
         else:
             print('Routes have not been transferred')
 
