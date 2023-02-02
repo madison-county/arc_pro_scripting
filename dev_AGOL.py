@@ -330,7 +330,8 @@ def roads_routes_transfer(feature_class, string_arg):
             if feature_class == 'Routes':
                 RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
             else:
-                pass
+                TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
+                RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
             valid_input = True
         elif user_prompt == 'N':
             print('{} will NOT be transferred'.format(feature_class))
