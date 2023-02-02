@@ -310,9 +310,11 @@ def roads_transfer():
             TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
             RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
             valid_input = True
-        if user_prompt == 'N':
+        elif user_prompt == 'N':
             print('Road structures will not be transfered - No Server connection\n')
         else:
             ('Error - Invalid input detected.\n')
+            roads_transfer()
+
 if __name__ == "__main__":
     main()
