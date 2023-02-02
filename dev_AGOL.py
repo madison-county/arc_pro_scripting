@@ -303,6 +303,7 @@ def route_transfer():
             valid_input = True
         elif user_prompt == 'N':
             print('Routes have not been transferred')
+            valid_input = True
         else:
             print('Invalid input detected - Enter "Y" or "N"')
             route_transfer()
