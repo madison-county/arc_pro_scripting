@@ -294,9 +294,9 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print('\n \n  Routes were copied \n \n')
 
 def roads_transfer():
-    user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
     valid_input = False
     while not valid_input:
+        user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
         if user_prompt == 'Y':
             TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
             RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
@@ -306,7 +306,6 @@ def roads_transfer():
             valid_input = True
         else:
             print('Error - Invalid input detected.\n')
-            roads_transfer()
 
 def route_transfer():
     user_prompt = input('Transfer routes to the G Drive? [Y or N]:\n').upper()
@@ -316,6 +315,7 @@ def route_transfer():
             RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
             print('Routes have been transfered')
             valid_input = True
+            break
         elif user_prompt == 'N':
             print('Routes have not been transferred')
             valid_input = True
