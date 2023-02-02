@@ -243,5 +243,28 @@ def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
     print("\n\n" + "Temp transfer completed with a Run Time of: " + str(runTime))
     print("At:  " + str(datetime.now()))
 
+def RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime):
+    print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
+    for filename in os.listdir(originalRoadStructureLocation):
+        try:
+            if os.path.isdir(filename):
+                print(filename + "  is a folder and was not copied")
+                continue
+            elif filename.endswith(".lock"):
+                print(filename + "  was not copied")
+                continue
+            else:
+        #        if filename.startswith("1000_Pt_Routes"):
+                srcTAL=os.path.join(originalRoadStructureLocation,filename)
+                print(srcTAL + "  has been copied.")
+                shutil.copy2(srcTAL,newRoadStructureLocation)
+        except IOError:
+            print("\n " + filename + "  was PASSED over. \n")
+            print(IOError)
+    runTime = TimeCalculation(initialStartTime)
+    print("\n\n" + "Temp transfer completed with a Run Time of: " + str(runTime))
+    print("At:  " + str(datetime.now()))    
+    print('\n \n  Roads and Structures were copied \n \n')
+
 if __name__ == "__main__":
     main()
