@@ -304,7 +304,8 @@ def route_transfer():
         elif user_prompt == 'N':
             print('Routes have not been transferred')
         else:
-            print('Routes have not been transferred')
+            print('Invalid input detected - Enter "Y" or "N"')
+            route_transfer()
 
 def roads_transfer():
     user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
