@@ -328,7 +328,7 @@ def roads_routes_transfer(feature_class, string_arg):
         user_prompt = input(string_arg)
         if user_prompt == 'Y':
             if feature_class == 'Routes':
-                pass
+                RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
             else:
                 pass
             valid_input = True
