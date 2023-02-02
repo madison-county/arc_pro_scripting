@@ -154,7 +154,7 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
     return FGDB_name
 
 def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime):     # Sends files to the E drive
-    print('Workspace at line 195 is:  ' + str(arcpy.env.workspace))
+    print('Workspace at line {} is:  '.format(get_line()) + str(arcpy.env.workspace))
     print('Local features are going to be overwritten with Online data')
     #    Creating TempsG shapefiles from feature classes.
     arcpy.conversion.FeatureClassToShapefile(output_file_name + '/' + FGDB_name + '.gdb/SiteStructureAddressPoints;' + output_file_name + '/' + FGDB_name + '.gdb/RoadCenterlines', structuresFolder + 'TransferFolder')
