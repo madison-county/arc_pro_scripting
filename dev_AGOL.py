@@ -9,8 +9,6 @@ from inspect import currentframe, getframeinfo
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
-cf = currentframe()
-
 label = datetime.now().strftime("%Y-%m-%d_Time-%H-%M")
 
 # Using current time for folder labels and process tracking  
