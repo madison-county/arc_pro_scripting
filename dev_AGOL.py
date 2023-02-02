@@ -327,9 +327,9 @@ def roads_routes_transfer(feature_class, string_arg):
     while not valid_input:
         user_prompt = input(string_arg)
         if user_prompt == 'Y':
-            pass
+            valid_input = True
         elif user_prompt == 'N':
-            pass
+            valid_input = True
         else:
             pass
 
