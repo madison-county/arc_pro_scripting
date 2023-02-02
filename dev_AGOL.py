@@ -305,7 +305,7 @@ def roads_transfer():
             print('Road structures will not be transfered - No Server connection\n')
             valid_input = True
         else:
-            print('Error - Invalid input detected.\n')
+            print('Error - Invalid input detected. - Enter "Y" or "N"\n')
 
 def route_transfer():
     valid_input = False
@@ -320,7 +320,7 @@ def route_transfer():
             print('Routes have not been transferred')
             valid_input = True
         else:
-            print('Invalid input detected - Enter "Y" or "N"')
+            print('Invalid input detected. - Enter "Y" or "N"\n')
 
 if __name__ == "__main__":
     main()
