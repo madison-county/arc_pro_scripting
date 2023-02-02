@@ -293,7 +293,7 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print('\n \n  Routes were copied \n \n')
 
 def route_transfer():
-    user_prompt = input('Transfer routes to the G Drive? [Y or N]').upper()
+    user_prompt = input('Transfer routes to the G Drive? [Y or N]:\n').upper()
     print(user_prompt)
 
 if __name__ == "__main__":
