@@ -291,5 +291,8 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print("At:  " + str(datetime.now()))    
     print('\n \n  Routes were copied \n \n')
 
+def route_transfer():
+    pass
+
 if __name__ == "__main__":
     main()
