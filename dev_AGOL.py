@@ -143,7 +143,7 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
     print('FGDB_name =  ' + FGDB_name)
     # Set the workspace for ListFeatureClasses
     workSpace = output_file_name + '/' + FGDB_name + ".gdb"    # FGDB_Path
-    print('Workspace at line 143 is:  '+ workSpace) # '\n Or' + str(arcpy.env.workspace))
+    print('Workspace at line {} is:  '.format(get_line())+ workSpace) # '\n Or' + str(arcpy.env.workspace))
     arcpy.env.workspace = workSpace #    output_file_name + os.path.sep + FGDB_name    # FGDB_Path
     
     # Use the ListFeatureClasses function to print a list of shapefiles.
