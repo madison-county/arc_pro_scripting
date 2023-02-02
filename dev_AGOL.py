@@ -305,6 +305,9 @@ def roads_transfer():
     user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
     if user_prompt == 'Y':
         TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
+        RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
+    else:
+        print('Road structures will not be transfered - No Server connection')
 
 if __name__ == "__main__":
     main()
