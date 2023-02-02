@@ -9,6 +9,8 @@ from inspect import currentframe, getframeinfo
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
+cf = currentframe()
+
 label = datetime.now().strftime("%Y-%m-%d_Time-%H-%M")
 
 # Using current time for folder labels and process tracking  
@@ -75,7 +77,7 @@ def MakePath(backupFolder, label, initialStartTime):    #Makes the Geodata Backu
 def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Downloads the data from AGOL to the backup folder location; calls the extraction process.
     # Get the current date and time-----------------------------------------------------------------------------------------
     date_time = time.strftime('%m%d%Y%H%M')
-    print('Download Process started:   \t\t\t\t\t\t L__41 \t' + time.ctime())
+    print('Download Process started:   \t\t\t\t\t\t {} \t'.format(cf.f_lineno) + time.ctime())
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
