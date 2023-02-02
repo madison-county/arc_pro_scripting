@@ -266,5 +266,29 @@ def RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, i
     print("At:  " + str(datetime.now()))    
     print('\n \n  Roads and Structures were copied \n \n')
 
+def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
+    print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
+    for filename in os.listdir(originalRouteLocation):
+        try:
+            
+            if os.path.isdir(filename):
+                print(filename + "  is a folder and was not copied")
+                continue
+            elif filename.endswith(".lock"):
+                print(filename + "  was not copied")
+                continue
+            else:
+        #        if filename.startswith("1000_Pt_Routes"):
+                srcTAL=os.path.join(originalRouteLocation,filename)
+                print(srcTAL + "  has been copied.")
+                shutil.copy2(srcTAL,newRouteLocation)
+        except IOError:
+            print("\n " + filename + "  was PASSED over. \n")
+            print(IOError)
+    runTime = TimeCalculation(initialStartTime)
+    print("\n\n" + "Routing transfer completed with a Run Time of: " + str(runTime))
+    print("At:  " + str(datetime.now()))    
+    print('\n \n  Routes were copied \n \n')
+
 if __name__ == "__main__":
     main()

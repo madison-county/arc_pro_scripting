@@ -346,6 +346,7 @@ def RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, i
     print('\n \n  Roads and Structures were copied \n \n')
 
 ## Placeholder portion of the script.
+# TODO REMOVE DUPLICATE FUNCTION CODE
 def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
     #    Copy Temps to E drive.
     #TempsG = "G:/GIS/DailyData/Temps/"
