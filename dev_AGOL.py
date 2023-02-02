@@ -308,9 +308,9 @@ def roads_transfer():
             print('Error - Invalid input detected.\n')
 
 def route_transfer():
-    user_prompt = input('Transfer routes to the G Drive? [Y or N]:\n').upper()
     valid_input = False
     while not valid_input:
+        user_prompt = input('Transfer routes to the G Drive? [Y or N]:\n').upper()
         if user_prompt == 'Y':
             RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime)
             print('Routes have been transfered')
@@ -321,7 +321,6 @@ def route_transfer():
             valid_input = True
         else:
             print('Invalid input detected - Enter "Y" or "N"')
-            route_transfer()
 
 if __name__ == "__main__":
     main()
