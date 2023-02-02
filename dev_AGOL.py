@@ -18,9 +18,9 @@ hour = str(datetime.now())[11:13]
 minute = str(datetime.now())[14:16]    
 second = str(datetime.now())[16:18]
 print(currentTime)
-print('Initial Start Time is:  \t\t\t\t\t\t\t\t\t' + str(initialStartTime))
+print('Initial Start Time is:  \t\t\t\t\t\t' + str(initialStartTime))
 estCompletedTime = initialStartTime + timedelta(minutes = 6)  #    datetime.timedelta(minutes = 10)
-print('Expected completion time is:   \t\t\t\t\t\t\t' + str(estCompletedTime))
+print('Expected completion time is:   \t\t\t\t\t\t' + str(estCompletedTime))
 print('Folder Label is:  ' + label)
 
 # Windows Pathing
@@ -111,7 +111,6 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     output_file_name = input_file_name[:-4] # removes .zip from the input file name
     outFile = open(outSummary, 'w')
     print('Variables created \t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
-    print('Input file: {}\nOutput File: {}'.format(input_file_name, output_file_name))
 
     #Create Summary Text File
     for lyr in coreFeature_item_lyrs:
