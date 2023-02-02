@@ -165,7 +165,7 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\SiteStructureAddressPoints.shp')    # Removes the SiteStructureAddressPoints Shape File from the E:\..Road_Struct Folder.
     arcpy.Delete_management(structuresFolder + os.path.sep + 'TransferFolder\RoadCenterlines.shp')    # Removes the RoadCenterlines Shape File from the E:\..Road_Struct Folder.
     arcpy.Delete_management(output_file_name) #    Deletes the 2020_files from the Transfer folder.
-    print('Files and folders transferred \t\t\t\t\t L_185')
+    print('Files and folders transferred \t\t\t\t\t Line: {}'.format(get_line()))
     
     arcpy.env.overwriteOutput = False
     TimeCalculation(initialStartTime)
