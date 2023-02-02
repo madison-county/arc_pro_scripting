@@ -8,10 +8,10 @@ from zipfile import ZipFile
 load_dotenv()
 ARCGIS_PASSWORD = os.getenv("ARCGIS_PW")
 
+label = datetime.now().strftime("%Y-%m-%d_Time-%H-%M")
+
 # Using current time for folder labels and process tracking  
 initialStartTime = datetime.now() 
-
-label = 'testing_label'
 currentTime = str(datetime.now())  
 date = str(datetime.now())[:10]    
 hour = str(datetime.now())[11:13]    
@@ -77,7 +77,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
-    print('Login successful \t\t\t\t\t\t\t\t L__45 \t' + str(time.ctime()))
+    print('Login successful \t\t\t\t\t\t\t L__45 \t' + str(time.ctime()))
     # Define the ArcGIS Online Item ID for Core Data------------------------------------------------------------------------
     coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
     # coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
@@ -85,14 +85,14 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     
     # Get the Core Data AGOL Items-------------------------------------------------------------------------------
     coreFeature_item = cred_gis.content.get(coreFeatureService)
-    print('The GET command completed \t\t\t\t\t L__53 \t' + str(time.ctime()))
+    print('The GET command completed \t\t\t\t\t\t L__53 \t' + str(time.ctime()))
     
     #Notification.notificationSound(text)
     
     # Export the Structures and Roads Feature Services to FGDB--------------------------------------------------------------
     coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'File Geodatabase') # This was used for the original script to download the feature classes via FDGB
     #coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'Shapefile') #    Use this method to download shapefiles. Used to validate files if feature classes are not working. 
-    print('Export completed \t\t\t\t\t\t\t\t L__57 \t' + str(time.ctime()))
+    print('Export completed \t\t\t\t\t\t\t L__57 \t' + str(time.ctime()))
     
     # Download the FGDB-----------------------------------------------------------------------------------------------------
     coreFeature_item_fgdb.download(save_path = backupFolder) # r'E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup')
@@ -110,7 +110,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     input_file_name = backupFolder + "/CoreData_" + date_time + ".zip" # Used in Tommy's script below.
     output_file_name = input_file_name[:-4] # removes .zip from the input file name
     outFile = open(outSummary, 'w')
-    print('Variables created \t\t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
+    print('Variables created \t\t\t\t\t\t\t L__74 \t' + str(time.ctime()))
     print('Input file: {}\nOutput File: {}'.format(input_file_name, output_file_name))
 
     #Create Summary Text File
