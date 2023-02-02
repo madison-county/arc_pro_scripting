@@ -329,6 +329,7 @@ def roads_routes_transfer(feature_class, string_arg):
         if user_prompt == 'Y':
             valid_input = True
         elif user_prompt == 'N':
+            print('{} will NOT be transferred'.format(feature_class))
             valid_input = True
         else:
             print('Invalid input detected - Please enter "Y" or "N"\n')
