@@ -220,7 +220,7 @@ def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
         else:
             if filename.startswith(TempName):
     
-                srcLS=os.path.join(TempsG,filename)
+                srcLS = os.path.join(TempsG,filename)
                 print(srcLS + "  has been copied.")
                 shutil.copy2(srcLS,newTempLocation)
     #            print(filename + "  has been copied.")
