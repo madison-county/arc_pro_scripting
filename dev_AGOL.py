@@ -302,7 +302,9 @@ def route_transfer():
         print('Routes have not been transferred')
 
 def roads_transfer():
-    pass
+    user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
+    if user_prompt == 'Y':
+        TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
 
 if __name__ == "__main__":
     main()
