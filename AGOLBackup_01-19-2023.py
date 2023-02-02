@@ -377,7 +377,6 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
     for filename in os.listdir(originalRouteLocation):
         try:
-            
             if os.path.isdir(filename):
                 print(filename + "  is a folder and was not copied")
                 continue
