@@ -312,6 +312,7 @@ def roads_transfer():
             valid_input = True
         elif user_prompt == 'N':
             print('Road structures will not be transfered - No Server connection\n')
+            valid_input = True
         else:
             ('Error - Invalid input detected.\n')
             roads_transfer()
