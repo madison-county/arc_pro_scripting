@@ -273,7 +273,6 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print("\n \n" + "Copying Roads, Structures, Routes, etc. over" + "\n \n")
     for filename in os.listdir(originalRouteLocation):
         try:
-            
             if os.path.isdir(filename):
                 print(filename + "  is a folder and was not copied")
                 continue
@@ -282,7 +281,7 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
                 continue
             else:
         #        if filename.startswith("1000_Pt_Routes"):
-                srcTAL=os.path.join(originalRouteLocation,filename)
+                srcTAL = os.path.join(originalRouteLocation,filename)
                 print(srcTAL + "  has been copied.")
                 shutil.copy2(srcTAL,newRouteLocation)
         except IOError:
@@ -309,7 +308,6 @@ def roads_routes_transfer(feature_class, string_arg):
             valid_input = True
         else:
             print('Invalid input detected - Please enter "Y" or "N"\n')
-
 
 if __name__ == "__main__":
     main()
