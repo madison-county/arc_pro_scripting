@@ -293,20 +293,6 @@ def RoutesToG(originalRouteLocation, newRouteLocation, initialStartTime):
     print("At:  " + str(datetime.now()))    
     print('\n \n  Routes were copied \n \n')
 
-def roads_transfer():
-    valid_input = False
-    while not valid_input:
-        user_prompt = input('Are you connected to the server? [Y or N]:\n').upper()
-        if user_prompt == 'Y':
-            TempsToE(TempsG, newTempLocation, 'Temp', initialStartTime)
-            RoadStructuresToG(originalRoadStructureLocation, newRoadStructureLocation, initialStartTime)
-            valid_input = True
-        elif user_prompt == 'N':
-            print('Road structures will not be transfered - No Server connection\n')
-            valid_input = True
-        else:
-            print('Error - Invalid input detected. - Enter "Y" or "N"\n')
-
 def roads_routes_transfer(feature_class, string_arg):
     valid_input = False
     while not valid_input:
