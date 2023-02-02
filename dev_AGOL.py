@@ -55,6 +55,7 @@ def main():
     featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initialStartTime)
     copyPasteOverwrite(structuresFolder, copyLocation, initialStartTime)
     CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOutWorkspace, initialStartTime, structuresFolder)
+    route_transfer()
 
 def TimeCalculation(initialStartTime):    ## This is the time tracking code function.
     runTime = datetime.now() - initialStartTime
