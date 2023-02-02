@@ -331,7 +331,7 @@ def roads_routes_transfer(feature_class, string_arg):
         elif user_prompt == 'N':
             valid_input = True
         else:
-            pass
+            print('Invalid input detected - Please enter "Y" or "N"\n')
 
 
 if __name__ == "__main__":
