@@ -123,7 +123,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
         outFile.write(""+"\n"+"\n")
     
     outFile.close()
-    print('Backup Summary Completed \t\t\t\t\t\t L__86 \t' + str(time.ctime()))
+    print('Backup Summary Completed \t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
     FGDB_name = extractZipFile(input_file_name, output_file_name, initialStartTime)
     print('*** FGDB: {} ***'.format(FGDB_name))
     # TODO - Fix pathing issue here
