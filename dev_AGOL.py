@@ -170,6 +170,7 @@ def featureTransfer(output_file_name, FGDB_name, structuresFolder, label, initia
     TimeCalculation(initialStartTime)
 
 def ask_user(prompt):    ## This is the user input function that only evaluates for "Yes" or "No"
+    # TODO Refactor logic and abstract work
     check = str(input(prompt)).lower().strip()
     try:
         if check[0] == 'y':
