@@ -293,5 +293,8 @@ def roads_routes_transfer(feature_class, string_arg):
         else:
             print('Invalid input detected - Please enter "Y" or "N"\n')
 
+def get_line():
+    pass
+
 if __name__ == "__main__":
     main()
