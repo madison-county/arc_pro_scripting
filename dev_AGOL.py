@@ -139,7 +139,7 @@ def extractZipFile(input_file_name, output_file_name, initialStartTime):
         FGDB_name = FGDB[0:36]
         zip.extractall(output_file_name)
         print(output_file_name + '  is Done!\n') 
-    print('Backup/extraction process completed \t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
+    print('Backup/extraction process completed \t\t\t\t Line: {} \t{}'.format(get_line(), time.ctime()))
     print('FGDB_name =  ' + FGDB_name)
     # Set the workspace for ListFeatureClasses
     workSpace = output_file_name + '/' + FGDB_name + ".gdb"    # FGDB_Path
