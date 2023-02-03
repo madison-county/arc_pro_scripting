@@ -97,7 +97,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     
     # Download the FGDB-----------------------------------------------------------------------------------------------------
     coreFeature_item_fgdb.download(save_path = backupFolder) # r'E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup')
-    print('Download completed \t\t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
+    print('Download completed \t\t\t\t\t\t\t Line: {} \t{}'.format(get_line(), time.ctime()))
     
     # Delete the FGDB Items in AGOL-----------------------------------------------------------------------------------------
     coreFeature_item_fgdb.delete()
