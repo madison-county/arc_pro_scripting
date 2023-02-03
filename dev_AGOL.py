@@ -86,7 +86,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     
     # Get the Core Data AGOL Items-------------------------------------------------------------------------------
     coreFeature_item = cred_gis.content.get(coreFeatureService)
-    print('The GET command completed \t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
+    print('The GET command completed \t\t\t\t\t\t Line: {} \t{}'.format(get_line(), time.ctime()))
     
     #Notification.notificationSound(text)
     
