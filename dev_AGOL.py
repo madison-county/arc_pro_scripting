@@ -207,7 +207,7 @@ def CopyStucturesTempsToBackupFolder_G(label, outWorkspace, TempsG, temporaryOut
             print('Files not copied')
             print(err)
     runTime = TimeCalculation(initialStartTime)
-    print("\n\n" + "Backup Completed with a Run Time of: " + str(runTime))
+    print("\n\n" + "Backup Completed with a Run Time of: {}".format(str(runTime)))
     print("At:  " + str(datetime.now()) + "\n \n")
 
 def TempsToE(TempsG, newTempLocation, TempName, initialStartTime):
