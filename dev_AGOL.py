@@ -93,7 +93,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     # Export the Structures and Roads Feature Services to FGDB--------------------------------------------------------------
     coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'File Geodatabase') # This was used for the original script to download the feature classes via FDGB
     #coreFeature_item_fgdb = coreFeature_item.export('CoreData_' + str(date_time),'Shapefile') #    Use this method to download shapefiles. Used to validate files if feature classes are not working. 
-    print('Export completed \t\t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
+    print('Export completed \t\t\t\t\t\t\t Line: {} \t{}'.format(get_line(), time.ctime()))
     
     # Download the FGDB-----------------------------------------------------------------------------------------------------
     coreFeature_item_fgdb.download(save_path = backupFolder) # r'E:\Dropbox (Geodata)\Data\MT_NG911_Madison\AGO_Backup')
