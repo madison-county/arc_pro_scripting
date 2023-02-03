@@ -79,7 +79,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
 
     cred_gis = GIS('https://www.arcgis.com','Jboyk_MadisonCounty', ARCGIS_PASSWORD)
     print('Succcessfully logged in as '+ cred_gis.properties.user.username)
-    print('Login successful \t\t\t\t\t\t\t {} \t'.format(get_line()) + str(time.ctime()))
+    print('Login successful \t\t\t\t\t\t\t Line: {} \t {}'.format(get_line(), str(time.ctime())))
     # Define the ArcGIS Online Item ID for Core Data------------------------------------------------------------------------
     coreFeatureService = 'ecd08dc4ffd341b1a1552f640c7c79d8'
     print('The coreFeatureService is defined \t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
