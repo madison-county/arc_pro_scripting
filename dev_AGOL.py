@@ -101,7 +101,7 @@ def downloadFromAGOL(backupFolder, initialStartTime, ARCGIS_PASSWORD):    # Down
     
     # Delete the FGDB Items in AGOL-----------------------------------------------------------------------------------------
     coreFeature_item_fgdb.delete()
-    print('Temp file in AGOL deleted \t\t\t\t\t\t Line: {} \t'.format(get_line()) + str(time.ctime()))
+    print('Temp file in AGOL deleted \t\t\t\t\t\t Line: {} \t{}'.format(get_line(), time.ctime()))
     
     # Create Variables for output text file
     coreFeature_item_lyrs = coreFeature_item.layers
