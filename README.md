@@ -73,3 +73,7 @@
     * Examples: If `Book` is supplied for the above example, then `4` or `5` could be passed to this field to make a selection of all specified fields that contain `Book` == `4`. 
 * Additionally, this script makes use of the `python-dotenv` package, which must be configured within a clone environment within ArcGIS Pro. 
   * Creation of a .env file in the script directory is required, after which the user can define `ARCGIS_PW=<your password>` in order to ping the ArcGIS Pro system online and retrieve corresponding files. 
+
+## AGOL Backups || `dev_AGOL.py` and `AGOLBackup_01-19-2023.py`
+* This script is designed to download and backup ArcGIS Pro datasets from various online web services and overwrite local locations to provide up to date and accurate information.
+* Eventually, the script will also download respective files for the Weed Board and Dispatch offices.
